@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public class FMeshNode : FFacetElementNode
 {
-	protected Color _color = Futile.white;
-	protected Color _alphaColor = Futile.white;
+    protected Color _color = FutileEngine.white;
+    protected Color _alphaColor = FutileEngine.white;
 	
 	protected bool _isMeshDirty = false;
 
@@ -22,24 +22,24 @@ public class FMeshNode : FFacetElementNode
 	{
 	}
 
-	public FMeshNode (FFacetType facetType, string elementName) : this(new FMeshData(facetType), Futile.atlasManager.GetElementWithName(elementName))
+    public FMeshNode (FacetType facetType, string elementName) : this(new FMeshData(facetType), FutileEngine.atlasManager.GetElementWithName(elementName))
 	{
 	}
 
-	public FMeshNode (FFacetType facetType, FAtlasElement element) : this(new FMeshData(facetType), element)
+	public FMeshNode (FacetType facetType, AtlasElement element) : this(new FMeshData(facetType), element)
 	{
 	}
 	
-	public FMeshNode (FMeshData meshData, string elementName) : this(meshData, Futile.atlasManager.GetElementWithName(elementName))
+    public FMeshNode (FMeshData meshData, string elementName) : this(meshData, FutileEngine.atlasManager.GetElementWithName(elementName))
 	{
 	}
 
-	public FMeshNode (FMeshData meshData, FAtlasElement element) : base()
+	public FMeshNode (FMeshData meshData, AtlasElement element) : base()
 	{
 		Init(meshData, element);
 	}
 
-	protected void Init(FMeshData meshData, FAtlasElement element)
+	protected void Init(FMeshData meshData, AtlasElement element)
 	{
 		_meshData = meshData;
 		_previousMeshDataVersion = _meshData.version;
@@ -143,7 +143,7 @@ public class FMeshNode : FFacetElementNode
 
 			FMeshVertex vertex;
 
-			if(_meshData.facetType == FFacetType.Triangle)
+			if(_meshData.facetType == FacetType.Triangle)
 			{
 				int vertexIndex0 = _firstFacetIndex*3;
 				int vertexIndex1 = vertexIndex0 + 1;
@@ -182,7 +182,7 @@ public class FMeshNode : FFacetElementNode
 				}
 
 			}
-			else if(_meshData.facetType == FFacetType.Quad)
+			else if(_meshData.facetType == FacetType.Quad)
 			{
 				int vertexIndex0 = _firstFacetIndex*4;
 				int vertexIndex1 = vertexIndex0 + 1;

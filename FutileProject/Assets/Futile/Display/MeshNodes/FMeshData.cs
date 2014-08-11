@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class FMeshData
 {
 	public List<FMeshFacet> facets;
-	public FFacetType facetType;
+	public FacetType facetType;
 	public int version = 0;
 
 	public Action SignalUpdate;
@@ -16,7 +16,7 @@ public class FMeshData
 		//if you use this constructor, you must call AddFacet/AddQuad/AddTriangle before passing it to the FMeshNode
 	}
 
-	public FMeshData(FFacetType facetType)
+	public FMeshData(FacetType facetType)
 	{
 		this.facets = new List<FMeshFacet>();
 		this.facetType = facetType;
@@ -69,7 +69,7 @@ public class FMeshData
 			facets.RemoveRange(0,facetCount-numFacetsNeeded);
 		}
 
-		if(facetType == FFacetType.Quad)
+		if(facetType == FacetType.Quad)
 		{
 			while(facetCount < numFacetsNeeded) //add quads if needed
 			{
@@ -161,7 +161,7 @@ public class FMeshData
 
 public class FMeshFacet
 {
-	public FFacetType facetType;
+	public FacetType facetType;
 
 	public FMeshVertex[] vertices;
 
@@ -255,19 +255,19 @@ public class FMeshQuad : FMeshFacet
 {
 	public FMeshQuad()
 	{
-		facetType = FFacetType.Quad;
+		facetType = FacetType.Quad;
 		vertices = new FMeshVertex[] {new FMeshVertex(),new FMeshVertex(),new FMeshVertex(),new FMeshVertex()};
 	}
 
 	public FMeshQuad(FMeshVertex[] vertices)
 	{
-		facetType = FFacetType.Quad;
+		facetType = FacetType.Quad;
 		this.vertices = vertices;
 	}
 
 	public FMeshQuad(FMeshVertex vertex1, FMeshVertex vertex2, FMeshVertex vertex3, FMeshVertex vertex4)
 	{
-		facetType = FFacetType.Quad;
+		facetType = FacetType.Quad;
 		vertices = new FMeshVertex[] {vertex1,vertex2,vertex3,vertex4};
 	}
 
@@ -351,7 +351,7 @@ public class FMeshQuad : FMeshFacet
 		return this; //for chaining
 	}
 
-	public FMeshQuad SetUVRectFromElement(FAtlasElement element) //creates a uv rect that represents the element within the atlas
+	public FMeshQuad SetUVRectFromElement(AtlasElement element) //creates a uv rect that represents the element within the atlas
 	{
 		float leftX = element.uvRect.xMin;
 		float rightX = element.uvRect.xMax;
@@ -371,19 +371,19 @@ public class FMeshTriangle : FMeshFacet
 {
 	public FMeshTriangle()
 	{
-		facetType = FFacetType.Triangle;
+		facetType = FacetType.Triangle;
 		vertices = new FMeshVertex[] {new FMeshVertex(),new FMeshVertex(),new FMeshVertex()};
 	}
 
 	public FMeshTriangle(FMeshVertex[] vertices)
 	{
-		facetType = FFacetType.Triangle;
+		facetType = FacetType.Triangle;
 		this.vertices = vertices;
 	}
 	
 	public FMeshTriangle(FMeshVertex vertex1, FMeshVertex vertex2, FMeshVertex vertex3)
 	{
-		facetType = FFacetType.Triangle;
+		facetType = FacetType.Triangle;
 		vertices = new FMeshVertex[] {vertex1,vertex2,vertex3};
 	}
 }
@@ -397,7 +397,7 @@ public class FMeshVertex
 	public float u;
 	public float v;
 
-	public Color color = Futile.white;
+    public Color color = FutileEngine.white;
 
 	public FMeshVertex()
 	{

@@ -61,10 +61,10 @@ public class FDebugFrameRateGraph : FContainer
 		_graphTex.SetPixels(0, _texHeight - 1, _texWidth, 1, maxTargetColor);
 		_graphTex.Apply();
 
-		Futile.atlasManager.LoadAtlasFromTexture("debugFrameGraph", _graphTex);
+        FutileEngine.atlasManager.LoadAtlasFromTexture("debugFrameGraph", _graphTex);
 		_graphSprite = new FSprite("debugFrameGraph");
 		_graphSprite.SetAnchor(0.0f, 0.0f);
-		_graphSprite.scale = Futile.resourceScale;
+        _graphSprite.scale = FutileEngine.resourceScale;
 		AddChild(_graphSprite);
 
 		ListenForUpdate(HandleUpdate);

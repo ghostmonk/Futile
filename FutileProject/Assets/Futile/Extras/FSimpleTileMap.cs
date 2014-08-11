@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class FSimpleTileMap : FMeshNode
 {
-	protected FAtlasElement[] _elements;
+	protected AtlasElement[] _elements;
 
 	protected int _cols;
 	protected int _rows;
@@ -19,7 +19,7 @@ public class FSimpleTileMap : FMeshNode
 	//note: the elements must all belong to the same atlas
 	//note: elements.Length should equal cols*rows
 
-	public FSimpleTileMap (FAtlasElement[] elements, int cols, int rows, float tileWidth, float tileHeight) : base()
+	public FSimpleTileMap (AtlasElement[] elements, int cols, int rows, float tileWidth, float tileHeight) : base()
 	{
 		_elements = elements;
 
@@ -34,7 +34,7 @@ public class FSimpleTileMap : FMeshNode
 			throw new FutileException("FSimpleTileMap - the number of elements does not match the number of rows and columns. It should be cols*rows = elements.Length");
 		}
 		
-		Init(new FMeshData(FFacetType.Quad), _elements[0].atlas.fullElement);
+		Init(new FMeshData(FacetType.Quad), _elements[0].atlas.FullElement);
 
 		UpdateMesh();
 	}
@@ -77,7 +77,7 @@ public class FSimpleTileMap : FMeshNode
 		return new Vector2(offsetX + (col * _tileWidth) + _tileWidth/2, offsetY + (row*_tileHeight) + _tileHeight/2);
 	}
 
-	public FAtlasElement GetTileElement(int col, int row)
+	public AtlasElement GetTileElement(int col, int row)
 	{
 		if(col < 0) return null;
 		if(col >= _cols) return null;
@@ -87,7 +87,7 @@ public class FSimpleTileMap : FMeshNode
 		return _elements[row*_cols + row];
 	}
 
-	public FAtlasElement[] elements
+	public AtlasElement[] elements
 	{
 		set {_elements = elements; UpdateMesh();}
 		get {return _elements;}

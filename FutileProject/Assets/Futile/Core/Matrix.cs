@@ -5,9 +5,9 @@ using System.Collections;
 //My own matrix thing based on stuff I learned here:
 //http://www.senocular.com/flash/tutorials/transformmatrix/
 
-public class FMatrix
+public class Matrix
 {
-	static public FMatrix tempMatrix = new FMatrix(); //useful for doing calulations without allocating a new matrix every time
+	static public Matrix tempMatrix = new Matrix(); //useful for doing calulations without allocating a new matrix every time
 	
 	public float a = 1; //scaleX
 	public float b = 0; //skewY
@@ -23,14 +23,14 @@ public class FMatrix
 	//x = x*a + y*c + tx
 	//y = x*b + y*d + ty
 	
-	public FMatrix () 
+	public Matrix () 
 	{
 
 	}
 	
-	public FMatrix Clone()
+	public Matrix Clone()
 	{
-		FMatrix result = new FMatrix();
+		Matrix result = new Matrix();
 		result.a = a;
 		result.b = b;
 		result.c = c;
@@ -41,7 +41,7 @@ public class FMatrix
 		return result;
 	}
 	
-	public void CopyValues(FMatrix sourceMatrix)
+	public void CopyValues(Matrix sourceMatrix)
 	{
 		a = sourceMatrix.a;
 		b = sourceMatrix.b;
@@ -148,7 +148,7 @@ public class FMatrix
 		return Mathf.Atan2(newVector.y-ty, newVector.x-tx) - RXMath.HALF_PI;
 	}
 	
-	public void Concat(FMatrix other)
+	public void Concat(Matrix other)
 	{
 		float oldA = a;
 		float oldB = b;
@@ -165,7 +165,7 @@ public class FMatrix
 		ty = oldTX*other.b + oldTY*other.d + other.ty;	
 	}
 	
-	public void ConcatOther(FMatrix other) //the opposite order of Concat
+	public void ConcatOther(Matrix other) //the opposite order of Concat
 	{
 		float oldA = a;
 		float oldB = b;
@@ -182,7 +182,7 @@ public class FMatrix
 		ty = other.tx*oldB + other.ty*oldD + oldTY;	
 	}
 	
-	public void ConcatAndCopyValues(FMatrix first, FMatrix second)
+	public void ConcatAndCopyValues(Matrix first, Matrix second)
 	{
 		a = first.a*second.a + first.b*second.c;
 		b = first.a*second.b + first.b*second.d;
@@ -211,7 +211,7 @@ public class FMatrix
 		ty = -(oldA*oldTY-oldB*oldTX)*bottom;
 	}
 	
-	public void InvertAndCopyValues(FMatrix other)
+	public void InvertAndCopyValues(Matrix other)
 	{
 		float bottom = 1.0f/(other.a*other.d-other.b*other.c);		
 		

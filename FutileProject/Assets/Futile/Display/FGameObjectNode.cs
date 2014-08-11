@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-public class FGameObjectNode : FNode, FRenderableLayerInterface
+public class FGameObjectNode : FNode, IRenderableLayer
 {
 	protected GameObject _gameObject;
 
@@ -45,7 +45,7 @@ public class FGameObjectNode : FNode, FRenderableLayerInterface
 	{
 		if(_isOnStage)
 		{
-			_gameObject.transform.parent = Futile.instance.gameObject.transform;
+            _gameObject.transform.parent = FutileEngine.instance.gameObject.transform;
 			
 			if(_gameObject.renderer != null && _gameObject.renderer.material != null)
 			{
@@ -73,7 +73,7 @@ public class FGameObjectNode : FNode, FRenderableLayerInterface
 			base.HandleAddedToStage();
 			
 			_stage.HandleFacetsChanged();
-			_gameObject.transform.parent = Futile.instance.gameObject.transform;
+            _gameObject.transform.parent = FutileEngine.instance.gameObject.transform;
 			UpdateGameObject();
 		}
 	}
@@ -138,7 +138,7 @@ public class FGameObjectNode : FNode, FRenderableLayerInterface
 	
 	virtual public void Update(int depth)
 	{
-		_renderQueueDepth = Futile.baseRenderQueueDepth+depth;
+        _renderQueueDepth = FutileEngine.baseRenderQueueDepth+depth;
 		
 		if(_gameObject.renderer != null && _gameObject.renderer.material != null)
 		{
@@ -155,7 +155,7 @@ public class FGameObjectNode : FNode, FRenderableLayerInterface
 	{
 		if(_isOnStage) 
 		{	
-			FMatrix matrix = this.screenConcatenatedMatrix;
+			Matrix matrix = this.screenConcatenatedMatrix;
 			
 			if(_shouldLinkPosition) _gameObject.transform.localPosition = matrix.GetVector3FromLocalVector2(Vector2.zero,0);
 			if(_shouldLinkRotation)

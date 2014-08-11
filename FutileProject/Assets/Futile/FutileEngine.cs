@@ -2,18 +2,19 @@ using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Futile.Core.Render;
 
 //FutileEngine by Matt Rix - 
 
-public class Futile : MonoBehaviour 
+public class FutileEngine : MonoBehaviour 
 {
-	static public Futile instance = null;
+    static public FutileEngine instance = null;
 	
 	
 	
 	static public FScreen screen;
 	
-	static public FAtlasManager atlasManager;
+	static public AtlasManager atlasManager;
 	
 	static public FStage stage;
 	
@@ -39,7 +40,7 @@ public class Futile : MonoBehaviour
 	static public string resourceSuffix; //set based on the resLevel
 	
 	//default element, a 16x16 white texture
-	static public FAtlasElement whiteElement;
+	static public AtlasElement whiteElement;
 	static public Color white = Color.white; //unlike Futile.white, it doesn't create a new color every time
 	
 	static internal int nextRenderLayerDepth = 0;
@@ -87,7 +88,7 @@ public class Futile : MonoBehaviour
 		Application.targetFrameRate = _futileParams.targetFrameRate;
 		
 		FShader.Init(); //set up the basic shaders
-		FFacetType.Init(); //set up the types of facets (Quads, Triangles, etc)
+		FacetType.Init(); //set up the types of facets (Quads, Triangles, etc)
 		
 		screen = new FScreen(_futileParams);
 		
@@ -116,7 +117,7 @@ public class Futile : MonoBehaviour
 		
 		touchManager = new FTouchManager();
 		
-		atlasManager = new FAtlasManager();
+		atlasManager = new AtlasManager();
 		
 		CreateDefaultAtlases();
 		
@@ -191,7 +192,7 @@ public class Futile : MonoBehaviour
 		plainWhiteTex.filterMode = FilterMode.Bilinear;
 		plainWhiteTex.wrapMode = TextureWrapMode.Clamp;
 		
-		Color white = Futile.white;
+        Color white = FutileEngine.white;
 		//Color clear = new Color(1,1,1,0);
 		
 		for(int r = 0; r<16; r++)
@@ -290,7 +291,7 @@ public class Futile : MonoBehaviour
 		_isDepthChangeNeeded = true;
 	}
 
-	public void ClearLayersThatUseAtlas(FAtlas atlas)
+	public void ClearLayersThatUseAtlas(Atlas atlas)
 	{
 		int stageCount = _stages.Count;
 		for(int s = 0; s<stageCount; s++)

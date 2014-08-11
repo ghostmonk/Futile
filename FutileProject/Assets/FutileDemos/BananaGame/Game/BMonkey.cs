@@ -5,13 +5,13 @@ public class BMonkey : FSprite
 {
 	private int _frameIndex = 0;
 
-	private FAtlasElement[] _frameElements;
+	private AtlasElement[] _frameElements;
 	
 	public BMonkey () : base("Monkey_0")
 	{
-		_frameElements = new FAtlasElement[19];
+		_frameElements = new AtlasElement[19];
 		
-		FAtlasManager am = Futile.atlasManager;
+        AtlasManager am = FutileEngine.atlasManager;
 		//of course there are way smarter ways to do this, but this is fast
 		//it's a ping ponging animation, which is why I did it this way, it's not a straight loop
 		_frameElements[0] = am.GetElementWithName("Monkey_0");

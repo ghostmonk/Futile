@@ -36,7 +36,7 @@ public class FParticleSystem : FFacetNode
 	
 	public void AddParticle(FParticleDefinition particleDefinition)
 	{
-		FAtlasElement element = particleDefinition.element;
+		AtlasElement element = particleDefinition.element;
 		
 		if(_hasInited)
 		{
@@ -48,7 +48,7 @@ public class FParticleSystem : FFacetNode
 		else 
 		{
 			_hasInited = true;
-			Init(FFacetType.Quad, element.atlas, _maxParticleCount);
+			Init(FacetType.Quad, element.atlas, _maxParticleCount);
 			if(stage != null) stage.HandleFacetsChanged();
 		}
 		
@@ -378,7 +378,7 @@ public class FParticleSystem : FFacetNode
 
 public class FParticleDefinition
 {
-	public FAtlasElement element;
+	public AtlasElement element;
 	
 	public float lifetime = 1.0f;
 	public float delay = 0.0f;
@@ -392,8 +392,8 @@ public class FParticleDefinition
 	public float startScale = 1.0f;
 	public float endScale = 1.0f;
 	
-	public Color startColor = Futile.white;
-	public Color endColor = Futile.white;
+    public Color startColor = FutileEngine.white;
+	public Color endColor = FutileEngine.white;
 
 	public float startRotation = 0;
 	public float endRotation = 0;
@@ -401,17 +401,17 @@ public class FParticleDefinition
 	
 	public FParticleDefinition(string elementName)
 	{
-		this.element = Futile.atlasManager.GetElementWithName(elementName);	
+		this.element = FutileEngine.atlasManager.GetElementWithName(elementName);	
 	}
 	
-	public FParticleDefinition(FAtlasElement element)
+	public FParticleDefinition(AtlasElement element)
 	{
 		this.element = element;
 	}
 	
 	public void SetElementByName(string elementName)
 	{
-		this.element = Futile.atlasManager.GetElementWithName(elementName);
+        this.element = FutileEngine.atlasManager.GetElementWithName(elementName);
 	}
 }
 

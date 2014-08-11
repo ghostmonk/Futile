@@ -4,8 +4,8 @@ using System;
 
 public class FSliceButton : FContainer, FSingleTouchableInterface
 {
-	protected FAtlasElement _upElement;
-	protected FAtlasElement _downElement;
+	protected AtlasElement _upElement;
+	protected AtlasElement _downElement;
 	protected Color _upColor;
 	protected Color _downColor;
 	protected FSliceSprite _bg;
@@ -31,8 +31,8 @@ public class FSliceButton : FContainer, FSingleTouchableInterface
 	
 	public FSliceButton (float width, float height, string upElementName, string downElementName, Color upColor, Color downColor, string soundName)
 	{
-		_upElement = Futile.atlasManager.GetElementWithName(upElementName);
-		_downElement = Futile.atlasManager.GetElementWithName(downElementName);
+        _upElement = FutileEngine.atlasManager.GetElementWithName(upElementName);
+        _downElement = FutileEngine.atlasManager.GetElementWithName(downElementName);
 		_upColor = upColor;
 		_downColor = downColor;
 		
@@ -97,13 +97,13 @@ public class FSliceButton : FContainer, FSingleTouchableInterface
 	override public void HandleAddedToStage()
 	{
 		base.HandleAddedToStage();	
-		Futile.touchManager.AddSingleTouchTarget(this);
+        FutileEngine.touchManager.AddSingleTouchTarget(this);
 	}
 	
 	override public void HandleRemovedFromStage()
 	{
 		base.HandleRemovedFromStage();	
-		Futile.touchManager.RemoveSingleTouchTarget(this);
+        FutileEngine.touchManager.RemoveSingleTouchTarget(this);
 	}
 	
 	public bool HandleSingleTouchBegan(FTouch touch)
@@ -190,8 +190,8 @@ public class FSliceButton : FContainer, FSingleTouchableInterface
 
 	public void SetElements(string upElementName, string downElementName)
 	{
-		_upElement = Futile.atlasManager.GetElementWithName(upElementName);
-		_downElement = Futile.atlasManager.GetElementWithName(downElementName);
+        _upElement = FutileEngine.atlasManager.GetElementWithName(upElementName);
+        _downElement = FutileEngine.atlasManager.GetElementWithName(downElementName);
 		_bg.element = _upElement;
 	}
 	

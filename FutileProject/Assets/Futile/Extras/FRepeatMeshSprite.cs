@@ -31,7 +31,7 @@ public class FRepeatMeshSprite : FMeshNode
 		_scrollX = scrollX;
 		_scrollY = scrollY;
 
-		Init(new FMeshData(FFacetType.Quad), Futile.atlasManager.GetElementWithName(elementName));
+        Init(new FMeshData(FacetType.Quad), FutileEngine.atlasManager.GetElementWithName(elementName));
 	}
 
 	public void UpdateMesh()

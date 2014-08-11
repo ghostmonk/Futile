@@ -6,8 +6,8 @@ public class FSprite : FFacetElementNode
 	public static float defaultAnchorX = 0.5f;
 	public static float defaultAnchorY = 0.5f;
 	
-	protected Color _color = Futile.white;
-	protected Color _alphaColor = Futile.white;
+    protected Color _color = FutileEngine.white;
+    protected Color _alphaColor = FutileEngine.white;
 	
 	protected Vector2[] _localVertices;
 	
@@ -25,15 +25,15 @@ public class FSprite : FFacetElementNode
 		_localVertices = new Vector2[4];
 	}
 	
-	public FSprite (string elementName) : this(Futile.atlasManager.GetElementWithName(elementName))
+    public FSprite (string elementName) : this(FutileEngine.atlasManager.GetElementWithName(elementName))
 	{
 	}
 	
-	public FSprite (FAtlasElement element) : base()
+	public FSprite (AtlasElement element) : base()
 	{
 		_localVertices = new Vector2[4];
 		
-		Init(FFacetType.Quad, element,1);
+		Init(FacetType.Quad, element,1);
 		
 		_isAlphaDirty = true;
 		

@@ -17,11 +17,11 @@ public class FSliceSprite : FSprite
 
 	private bool _shouldRemoveCenterSlice = false;
 	
-	public FSliceSprite (string elementName, float width, float height, float insetTop, float insetRight, float insetBottom, float insetLeft) : this(Futile.atlasManager.GetElementWithName(elementName), width, height, insetTop, insetRight, insetBottom, insetLeft)
+    public FSliceSprite (string elementName, float width, float height, float insetTop, float insetRight, float insetBottom, float insetLeft) : this(FutileEngine.atlasManager.GetElementWithName(elementName), width, height, insetTop, insetRight, insetBottom, insetLeft)
 	{
 	}
 	
-	public FSliceSprite (FAtlasElement element, float width, float height, float insetTop, float insetRight, float insetBottom, float insetLeft) : base()
+	public FSliceSprite (AtlasElement element, float width, float height, float insetTop, float insetRight, float insetBottom, float insetLeft) : base()
 	{
 		_width = width;
 		_height = height;
@@ -31,7 +31,7 @@ public class FSliceSprite : FSprite
 		_insetBottom = insetBottom;
 		_insetLeft = insetLeft;
 		
-		Init(FFacetType.Quad, element,0); //this will call HandleElementChanged(), which will call SetupSlices();
+		Init(FacetType.Quad, element,0); //this will call HandleElementChanged(), which will call SetupSlices();
 		
 		_isAlphaDirty = true;
 		

@@ -2,6 +2,19 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 
+public enum FResolutionLevelPickMode
+{
+    Upwards, //default behavior, rounds upwards, won't take a resolution level with a maxlength LOWER than the screen size
+    Downwards, //rounds downwards, the moment max is equal or bigger than the reslevel, it takes it
+    Closest //gets the closest resolution level by comparing the deltas of (reslevel.maxlength - longestScreenDimension)
+}
+
+public enum FResolutionLevelPickDimension
+{
+    Shortest, //compares against the shortest dimension
+    Longest //compares against the longest dimension
+}
+
 public class FResolutionLevel
 {
 	public float maxLength;
@@ -71,17 +84,3 @@ public class FutileParams
 	}
 
 }
-
-public enum FResolutionLevelPickMode
-{
-	Upwards, //default behavior, rounds upwards, won't take a resolution level with a maxlength LOWER than the screen size
-	Downwards, //rounds downwards, the moment max is equal or bigger than the reslevel, it takes it
-	Closest //gets the closest resolution level by comparing the deltas of (reslevel.maxlength - longestScreenDimension)
-}
-
-public enum FResolutionLevelPickDimension
-{
-	Shortest, //compares against the shortest dimension
-	Longest //compares against the longest dimension
-}
-

@@ -3,15 +3,15 @@ using System;
 
 public class FFacetNode : FNode
 {
-	protected FAtlas _atlas = null;
+	protected Atlas _atlas = null;
 	protected FShader _shader = null;
 	
 	protected int _firstFacetIndex = -1;
 	protected int _numberOfFacetsNeeded;
 	
-	protected FFacetRenderLayer _renderLayer;
+	protected FacetRenderLayer _renderLayer;
 	
-	protected FFacetType _facetType;
+	protected FacetType _facetType;
 	
 	private bool _hasInited = false;
 	
@@ -20,7 +20,7 @@ public class FFacetNode : FNode
 		
 	}
 	
-	virtual protected void Init(FFacetType facetType, FAtlas atlas, int numberOfFacetsNeeded)
+	virtual protected void Init(FacetType facetType, Atlas atlas, int numberOfFacetsNeeded)
 	{
 		_facetType = facetType;
 		
@@ -79,7 +79,7 @@ public class FFacetNode : FNode
 		}
 	}
 	
-	public FFacetType facetType
+	public FacetType facetType
 	{
 		get {return _facetType;}	
 	}
@@ -88,9 +88,9 @@ public class FFacetNode : FNode
 //FFacetNode handles only a single element
 public class FFacetElementNode : FFacetNode
 {
-	protected FAtlasElement _element;
+	protected AtlasElement _element;
 	
-	protected void Init(FFacetType facetType, FAtlasElement element, int numberOfFacetsNeeded)
+	protected void Init(FacetType facetType, AtlasElement element, int numberOfFacetsNeeded)
 	{
 		_element = element;
 		
@@ -101,10 +101,10 @@ public class FFacetElementNode : FFacetNode
 	
 	public void SetElementByName(string elementName)
 	{
-		this.element = Futile.atlasManager.GetElementWithName(elementName);
+        this.element = FutileEngine.atlasManager.GetElementWithName(elementName);
 	}
 	
-	public FAtlasElement element
+	public AtlasElement element
 	{
 		get { return _element;}
 		set

@@ -12,14 +12,14 @@ public class FLabel : FFacetElementNode
 	public static float defaultAnchorX = 0.5f;
 	public static float defaultAnchorY = 0.5f;
 	
-	protected FFont _font;
+	protected Font _font;
 	protected string _fontName;
 	protected string _text;
 	
-	protected Color _color = Futile.white;
-	protected Color _alphaColor = Futile.white;
+    protected Color _color = FutileEngine.white;
+    protected Color _alphaColor = FutileEngine.white;
 	
-	protected FLetterQuadLine[] _letterQuadLines;
+	protected LetterQuadLine[] _letterQuadLines;
 	
 	protected bool _isMeshDirty = false;
 	
@@ -32,22 +32,22 @@ public class FLabel : FFacetElementNode
 	
 	protected Rect _textRect;
 	
-	protected FTextParams _textParams;
+	protected TextParams _textParams;
 
 	protected bool _shouldSnapToPixels = false;
 	
-	public FLabel (string fontName, string text) : this(fontName, text, new FTextParams())
+	public FLabel (string fontName, string text) : this(fontName, text, new TextParams())
 	{
 	}
 	
-	public FLabel (string fontName, string text, FTextParams textParams) : base()
+	public FLabel (string fontName, string text, TextParams textParams) : base()
 	{
 		_fontName = fontName;
 		_text = text;
-		_font = Futile.atlasManager.GetFontWithName(_fontName);
+        _font = FutileEngine.atlasManager.GetFontWithName(_fontName);
 		_textParams = textParams;
 
-		Init(FFacetType.Quad, _font.element, 0);
+		Init(FacetType.Quad, _font.element, 0);
 
 		CreateTextQuads();
 	}
@@ -94,7 +94,7 @@ public class FLabel : FFacetElementNode
 		int lineCount = _letterQuadLines.Length;
 		for(int i = 0; i<lineCount; i++)
 		{
-			FLetterQuadLine line = _letterQuadLines[i];
+			LetterQuadLine line = _letterQuadLines[i];
 			minY = Math.Min (line.bounds.yMin,minY);
 			maxY = Math.Max (line.bounds.yMax,maxY);
 		}
@@ -103,7 +103,7 @@ public class FLabel : FFacetElementNode
 		
 		for(int i = 0; i<lineCount; i++)
 		{
-			FLetterQuadLine line = _letterQuadLines[i];
+			LetterQuadLine line = _letterQuadLines[i];
 			float offsetX = -line.bounds.width*_anchorX;
 			
 			minX = Math.Min (offsetX,minX);
@@ -183,28 +183,28 @@ public class FLabel : FFacetElementNode
 
 			Vector2 topLeft = _letterQuadLines[0].quads[0].topLeft;
 
-			FMatrix matrixToUse = _concatenatedMatrix;
+			Matrix matrixToUse = _concatenatedMatrix;
 
 			if(_shouldSnapToPixels)
 			{
 				matrixToUse = matrixToUse.Clone();
 
-				matrixToUse.tx += (Mathf.Round(topLeft.x * Futile.displayScale) * Futile.displayScaleInverse) - topLeft.x;
-				matrixToUse.ty += (Mathf.Round(topLeft.y * Futile.displayScale) * Futile.displayScaleInverse) - topLeft.y;
+                matrixToUse.tx += (Mathf.Round(topLeft.x * FutileEngine.displayScale) * FutileEngine.displayScaleInverse) - topLeft.x;
+                matrixToUse.ty += (Mathf.Round(topLeft.y * FutileEngine.displayScale) * FutileEngine.displayScaleInverse) - topLeft.y;
 			}
 			
 			int lineCount = _letterQuadLines.Length;
 			for(int i = 0; i<lineCount; i++)
 			{
-				FLetterQuad[] quads = _letterQuadLines[i].quads;
+				LetterQuad[] quads = _letterQuadLines[i].quads;
 				
 				
 				int quadCount = quads.Length;
 				
 				for(int q = 0; q<quadCount; q++)
 				{
-					FLetterQuad quad = quads[q];
-					FCharInfo charInfo = quad.charInfo;
+					LetterQuad quad = quads[q];
+					CharInfo charInfo = quad.charInfo;
 					
 					matrixToUse.ApplyVector3FromLocalVector2(ref vertices[vertexIndex0], quad.topLeft,0);
 					matrixToUse.ApplyVector3FromLocalVector2(ref vertices[vertexIndex1], quad.topRight,0);

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System;
+using Futile.Core.Render;
 
 public class FStageTransform
 {
@@ -16,17 +17,17 @@ public class FStage : FContainer
 	
 	private bool _needsDepthUpdate = false;
 	
-	private FRenderer _renderer;
+	private FacetRenderer _renderer;
 	
 	private string _name;
 	
-	private FMatrix _identityMatrix;
+	private Matrix _identityMatrix;
 	
 	private bool _doesRendererNeedTransformChange = false;
 	
 	private FStageTransform _transform = new FStageTransform();
 	
-	private FMatrix _followMatrix = new FMatrix();
+	private Matrix _followMatrix = new Matrix();
 	private FNode _followTarget = null;
 	private bool _shouldFollowScale;
 	private bool _shouldFollowRotation;
@@ -39,14 +40,14 @@ public class FStage : FContainer
 		
 		_stage = this;
 		
-		_renderer = new FRenderer(this);
+		_renderer = new FacetRenderer(this);
 		
-		_identityMatrix = new FMatrix();
+		_identityMatrix = new Matrix();
 		_identityMatrix.ResetToIdentity();
 		
-		_inverseConcatenatedMatrix = new FMatrix();
-		_screenConcatenatedMatrix = new FMatrix();
-		_screenInverseConcatenatedMatrix = new FMatrix();
+		_inverseConcatenatedMatrix = new Matrix();
+		_screenConcatenatedMatrix = new Matrix();
+		_screenInverseConcatenatedMatrix = new Matrix();
 	}
 
 	public void HandleAddedToFutile()
@@ -127,7 +128,7 @@ public class FStage : FContainer
 		if(didNeedDepthUpdate)
 		{
 			_renderer.EndRender();
-			Futile.touchManager.HandleDepthChange(); 
+            FutileEngine.touchManager.HandleDepthChange(); 
 		}
 		
 		if(_doesRendererNeedTransformChange)
@@ -228,34 +229,34 @@ public class FStage : FContainer
 	
 	//notice how we're returning identity matrixes
 	//because we don't want our children to think we've been transformed (or else they will transform)
-	override public FMatrix matrix
+	override public Matrix matrix
 	{
 		get {return _identityMatrix;}
 	}
 	
-	override public FMatrix concatenatedMatrix
+	override public Matrix concatenatedMatrix
 	{
 		get {return _identityMatrix;}
 	}
 	
-	override public FMatrix inverseConcatenatedMatrix
+	override public Matrix inverseConcatenatedMatrix
 	{
 		get {return _identityMatrix;}
 	}
 	
 	//these represent the actual matrix of the stage and therefore the screen
 	
-	public FMatrix screenMatrix
+	public Matrix screenMatrix
 	{
 		get {return _matrix;}
 	}
 	
-	override public FMatrix screenConcatenatedMatrix
+	override public Matrix screenConcatenatedMatrix
 	{
 		get {return _concatenatedMatrix;}
 	}
 	
-	override public FMatrix screenInverseConcatenatedMatrix
+	override public Matrix screenInverseConcatenatedMatrix
 	{
 		get {return _inverseConcatenatedMatrix;}
 	}
@@ -265,7 +266,7 @@ public class FStage : FContainer
 		_renderer.Update();
 	}
 	
-	public FRenderer renderer
+	public FacetRenderer renderer
 	{
 		get {return _renderer;}	
 	}

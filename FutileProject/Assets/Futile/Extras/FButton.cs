@@ -7,9 +7,9 @@ public class FButton : FContainer, FSingleTouchableInterface
 	protected Rect _hitRect;
 	protected bool _shouldUseCustomHitRect = false;
 	
-	protected FAtlasElement _upElement;
-	protected FAtlasElement _downElement;
-	protected FAtlasElement _overElement;
+	protected AtlasElement _upElement;
+	protected AtlasElement _downElement;
+	protected AtlasElement _overElement;
 
 	protected bool _shouldUseCustomColors = false;
 	protected Color _upColor = Color.white;
@@ -39,12 +39,12 @@ public class FButton : FContainer, FSingleTouchableInterface
 	
 	public FButton (string upElementName, string downElementName, string overElementName, string clickSoundName)
 	{
-		_upElement = Futile.atlasManager.GetElementWithName(upElementName);
-		_downElement = Futile.atlasManager.GetElementWithName(downElementName);
+        _upElement = FutileEngine.atlasManager.GetElementWithName(upElementName);
+        _downElement = FutileEngine.atlasManager.GetElementWithName(downElementName);
 		
 		if(overElementName != null)
 		{
-			_overElement = Futile.atlasManager.GetElementWithName(overElementName);
+            _overElement = FutileEngine.atlasManager.GetElementWithName(overElementName);
 			_supportsOver = true;
 		}
 		
@@ -77,12 +77,12 @@ public class FButton : FContainer, FSingleTouchableInterface
 	
 	virtual public void SetElements(string upElementName, string downElementName, string overElementName)
 	{
-		_upElement = Futile.atlasManager.GetElementWithName(upElementName);
-		_downElement = Futile.atlasManager.GetElementWithName(downElementName);
+        _upElement = FutileEngine.atlasManager.GetElementWithName(upElementName);
+        _downElement = FutileEngine.atlasManager.GetElementWithName(downElementName);
 		
 		if(overElementName != null)
 		{
-			_overElement = Futile.atlasManager.GetElementWithName(overElementName);
+            _overElement = FutileEngine.atlasManager.GetElementWithName(overElementName);
 			_supportsOver = true;
 		}
 		
@@ -121,10 +121,10 @@ public class FButton : FContainer, FSingleTouchableInterface
 
 	virtual public FLabel AddLabel (string fontName, string text, Color color)
 	{
-		return this.AddLabel(fontName,text,new FTextParams(),color);
+		return this.AddLabel(fontName,text,new TextParams(),color);
 	}
 	
-	virtual public FLabel AddLabel (string fontName, string text, FTextParams textParams, Color color)
+	virtual public FLabel AddLabel (string fontName, string text, TextParams textParams, Color color)
 	{
 		if(_label != null) 
 		{
