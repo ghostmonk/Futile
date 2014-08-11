@@ -100,16 +100,16 @@ public class BInGamePage : BPage, FMultiTouchableInterface
     {
         //this will scale the background up to fit the screen
         //but it won't let it shrink smaller than 100%
-        _background.scale = Math.Max( Math.Max( 1.0f, FutileEngine.screen.height / _background.textureRect.height ), FutileEngine.screen.width / _background.textureRect.width );
+        _background.scale = Math.Max( Math.Max( 1.0f, FearsomeMonstrousBeast.screen.height / _background.textureRect.height ), FearsomeMonstrousBeast.screen.width / _background.textureRect.width );
          
-        _closeButton.x = -FutileEngine.screen.halfWidth + 30.0f;
-        _closeButton.y = -FutileEngine.screen.halfHeight + 30.0f;
+        _closeButton.x = -FearsomeMonstrousBeast.screen.halfWidth + 30.0f;
+        _closeButton.y = -FearsomeMonstrousBeast.screen.halfHeight + 30.0f;
         
-        _scoreLabel.x = -FutileEngine.screen.halfWidth + 10.0f;
-        _scoreLabel.y = FutileEngine.screen.halfHeight - 10.0f;
+        _scoreLabel.x = -FearsomeMonstrousBeast.screen.halfWidth + 10.0f;
+        _scoreLabel.y = FearsomeMonstrousBeast.screen.halfHeight - 10.0f;
         
-        _timeLabel.x = FutileEngine.screen.halfWidth - 10.0f;
-        _timeLabel.y = FutileEngine.screen.halfHeight - 10.0f;
+        _timeLabel.x = FearsomeMonstrousBeast.screen.halfWidth - 10.0f;
+        _timeLabel.y = FearsomeMonstrousBeast.screen.halfHeight - 10.0f;
     }
 
     private void HandleCloseButtonRelease( FButton button )
@@ -149,8 +149,8 @@ public class BInGamePage : BPage, FMultiTouchableInterface
     {
         BBanana banana = new BBanana();
         _bananaContainer.AddChild( banana );
-        banana.x = RXRandom.Range( -FutileEngine.screen.width / 2 + 50, FutileEngine.screen.width / 2 - 50 ); //padded inside the screen width
-        banana.y = FutileEngine.screen.height / 2 + 60; //above the screen
+        banana.x = RXRandom.Range( -FearsomeMonstrousBeast.screen.width / 2 + 50, FearsomeMonstrousBeast.screen.width / 2 - 50 ); //padded inside the screen width
+        banana.y = FearsomeMonstrousBeast.screen.height / 2 + 60; //above the screen
         _bananas.Add( banana );
         _totalBananasCreated++;
     }
@@ -194,7 +194,7 @@ public class BInGamePage : BPage, FMultiTouchableInterface
             BBanana banana = _bananas[ b ];
             
             //remove a banana if it falls off screen
-            if( banana.y < -FutileEngine.screen.halfHeight - 50 )
+            if( banana.y < -FearsomeMonstrousBeast.screen.halfHeight - 50 )
             {
                 _bananas.Remove( banana );
                 _bananaContainer.RemoveChild( banana );

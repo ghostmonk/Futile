@@ -58,7 +58,7 @@ public class FacetRenderLayer : IRenderableLayer
 		_gameObject = new GameObject("FRenderLayer ("+stage.name+") ("+facetType.name+")");
 		_transform = _gameObject.transform;
 		
-        _transform.parent = FutileEngine.instance.gameObject.transform;
+        _transform.parent = FearsomeMonstrousBeast.instance.gameObject.transform;
 		
 		_meshFilter = _gameObject.AddComponent<MeshFilter>();
 		_meshRenderer = _gameObject.AddComponent<MeshRenderer>();
@@ -186,7 +186,7 @@ public class FacetRenderLayer : IRenderableLayer
 			_depth = depth; 
 	
 			//this will set the render order correctly based on the depth
-            _material.renderQueue = FutileEngine.baseRenderQueueDepth+_depth;
+            _material.renderQueue = FearsomeMonstrousBeast.baseRenderQueueDepth+_depth;
 			
 			#if UNITY_EDITOR
 				//some debug code so that layers are sorted by depth properly

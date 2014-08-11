@@ -39,12 +39,12 @@ public class FButton : FContainer, FSingleTouchableInterface
 	
 	public FButton (string upElementName, string downElementName, string overElementName, string clickSoundName)
 	{
-        _upElement = FutileEngine.atlasManager.GetElementWithName(upElementName);
-        _downElement = FutileEngine.atlasManager.GetElementWithName(downElementName);
+        _upElement = FearsomeMonstrousBeast.atlasManager.GetElementWithName(upElementName);
+        _downElement = FearsomeMonstrousBeast.atlasManager.GetElementWithName(downElementName);
 		
 		if(overElementName != null)
 		{
-            _overElement = FutileEngine.atlasManager.GetElementWithName(overElementName);
+            _overElement = FearsomeMonstrousBeast.atlasManager.GetElementWithName(overElementName);
 			_supportsOver = true;
 		}
 		
@@ -77,12 +77,12 @@ public class FButton : FContainer, FSingleTouchableInterface
 	
 	virtual public void SetElements(string upElementName, string downElementName, string overElementName)
 	{
-        _upElement = FutileEngine.atlasManager.GetElementWithName(upElementName);
-        _downElement = FutileEngine.atlasManager.GetElementWithName(downElementName);
+        _upElement = FearsomeMonstrousBeast.atlasManager.GetElementWithName(upElementName);
+        _downElement = FearsomeMonstrousBeast.atlasManager.GetElementWithName(downElementName);
 		
 		if(overElementName != null)
 		{
-            _overElement = FutileEngine.atlasManager.GetElementWithName(overElementName);
+            _overElement = FearsomeMonstrousBeast.atlasManager.GetElementWithName(overElementName);
 			_supportsOver = true;
 		}
 		

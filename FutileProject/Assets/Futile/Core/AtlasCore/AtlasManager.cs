@@ -122,7 +122,7 @@ public class AtlasManager
             return GetAtlasWithName( atlasPath );
         } //we already have it, don't load it again
 
-        string pathWithSuffix = shouldUseResourceSuffix ? atlasPath + FutileEngine.resourceSuffix : atlasPath;
+        string pathWithSuffix = shouldUseResourceSuffix ? atlasPath + FearsomeMonstrousBeast.resourceSuffix : atlasPath;
         string filePath = pathWithSuffix + "_png";
 
         TextAsset imageBytes = Resources.Load( filePath, typeof( TextAsset ) ) as TextAsset;
@@ -157,7 +157,7 @@ public class AtlasManager
             return GetAtlasWithName( imagePath );
         } //we already have it
 
-        string pathWithSuffix = shouldUseResourceSuffix ? imagePath + FutileEngine.resourceSuffix : imagePath;
+        string pathWithSuffix = shouldUseResourceSuffix ? imagePath + FearsomeMonstrousBeast.resourceSuffix : imagePath;
         string filePath = pathWithSuffix + "_png";
         
         TextAsset imageBytes = Resources.Load( filePath, typeof( TextAsset ) ) as TextAsset;
@@ -204,7 +204,7 @@ public class AtlasManager
                 
                 wasAtlasRemoved = true;
 
-                FutileEngine.stage.renderer.ClearLayersThatUseAtlas( atlas );
+                FearsomeMonstrousBeast.stage.renderer.ClearLayersThatUseAtlas( atlas );
             }
         }
         
@@ -233,7 +233,7 @@ public class AtlasManager
                 return;
             } //we already have it, don't load it again
             
-            string fullFilePath = shouldUseResourceSuffix ? filePath + FutileEngine.resourceSuffix : filePath;
+            string fullFilePath = shouldUseResourceSuffix ? filePath + FearsomeMonstrousBeast.resourceSuffix : filePath;
             
             TextAsset text = Resources.Load( fullFilePath, typeof( TextAsset ) ) as TextAsset;
 

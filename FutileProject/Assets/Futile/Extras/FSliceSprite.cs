@@ -17,7 +17,7 @@ public class FSliceSprite : FSprite
 
 	private bool _shouldRemoveCenterSlice = false;
 	
-    public FSliceSprite (string elementName, float width, float height, float insetTop, float insetRight, float insetBottom, float insetLeft) : this(FutileEngine.atlasManager.GetElementWithName(elementName), width, height, insetTop, insetRight, insetBottom, insetLeft)
+    public FSliceSprite (string elementName, float width, float height, float insetTop, float insetRight, float insetBottom, float insetLeft) : this(FearsomeMonstrousBeast.atlasManager.GetElementWithName(elementName), width, height, insetTop, insetRight, insetBottom, insetLeft)
 	{
 	}
 	

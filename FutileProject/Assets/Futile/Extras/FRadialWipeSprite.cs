@@ -15,7 +15,7 @@ public class FRadialWipeSprite : FSprite
 		_baseAngle = (baseAngle + 36000000.0f) % 360.0f;
 		_percentage = Mathf.Clamp01(percentage);
 		
-        Init(FacetType.Triangle, FutileEngine.atlasManager.GetElementWithName(elementName),5);
+        Init(FacetType.Triangle, FearsomeMonstrousBeast.atlasManager.GetElementWithName(elementName),5);
 		
 		_isAlphaDirty = true; 
 		

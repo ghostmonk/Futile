@@ -37,7 +37,7 @@ public class LetterQuad
 	//this moves the quads by a certain offset
 	public void CalculateVectorsToWholePixels(float offsetX, float offsetY)
 	{
-        float scaleInverse = FutileEngine.displayScaleInverse;
+        float scaleInverse = FearsomeMonstrousBeast.displayScaleInverse;
 		
 		//the stuff is used to make sure the quad is resting on a whole pixel
 		float xMod = (rect.xMin+offsetX) % scaleInverse;

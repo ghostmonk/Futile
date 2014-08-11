@@ -184,7 +184,7 @@ namespace Futile.Core.Render
             int allRenderablesCount = _allRenderables.Count;
             for( int a = 0; a<allRenderablesCount; a++ )
             {
-                _allRenderables[ a ].Update( FutileEngine.nextRenderLayerDepth++ ); 
+                _allRenderables[ a ].Update( FearsomeMonstrousBeast.nextRenderLayerDepth++ ); 
             } 
 
             for( int a = 0; a<allRenderablesCount; a++ )

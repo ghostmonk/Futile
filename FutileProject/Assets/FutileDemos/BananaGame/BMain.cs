@@ -43,14 +43,14 @@ public class BMain : MonoBehaviour
         
         fparams.origin = new Vector2( 0.5f, 0.5f );
         
-        FutileEngine.instance.Init( fparams );
+        FearsomeMonstrousBeast.instance.Init( fparams );
         
-        FutileEngine.atlasManager.LoadAtlas( "Atlases/BananaLargeAtlas" );
-        FutileEngine.atlasManager.LoadAtlas( "Atlases/BananaGameAtlas" );
+        FearsomeMonstrousBeast.atlasManager.LoadAtlas( "Atlases/BananaLargeAtlas" );
+        FearsomeMonstrousBeast.atlasManager.LoadAtlas( "Atlases/BananaGameAtlas" );
         
-        FutileEngine.atlasManager.LoadFont( "Franchise", "FranchiseFont" + FutileEngine.resourceSuffix, "Atlases/FranchiseFont" + FutileEngine.resourceSuffix, 0.0f, -4.0f );
+        FearsomeMonstrousBeast.atlasManager.LoadFont( "Franchise", "FranchiseFont" + FearsomeMonstrousBeast.resourceSuffix, "Atlases/FranchiseFont" + FearsomeMonstrousBeast.resourceSuffix, 0.0f, -4.0f );
         
-        _stage = FutileEngine.stage;
+        _stage = FearsomeMonstrousBeast.stage;
         
         FSoundManager.PlayMusic( "NormalMusic", 0.5f );
         

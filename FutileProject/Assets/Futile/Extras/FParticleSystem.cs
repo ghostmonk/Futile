@@ -392,8 +392,8 @@ public class FParticleDefinition
 	public float startScale = 1.0f;
 	public float endScale = 1.0f;
 	
-    public Color startColor = FutileEngine.white;
-	public Color endColor = FutileEngine.white;
+    public Color startColor = FearsomeMonstrousBeast.white;
+	public Color endColor = FearsomeMonstrousBeast.white;
 
 	public float startRotation = 0;
 	public float endRotation = 0;
@@ -401,7 +401,7 @@ public class FParticleDefinition
 	
 	public FParticleDefinition(string elementName)
 	{
-		this.element = FutileEngine.atlasManager.GetElementWithName(elementName);	
+		this.element = FearsomeMonstrousBeast.atlasManager.GetElementWithName(elementName);	
 	}
 	
 	public FParticleDefinition(AtlasElement element)
@@ -411,7 +411,7 @@ public class FParticleDefinition
 	
 	public void SetElementByName(string elementName)
 	{
-        this.element = FutileEngine.atlasManager.GetElementWithName(elementName);
+        this.element = FearsomeMonstrousBeast.atlasManager.GetElementWithName(elementName);
 	}
 }
 

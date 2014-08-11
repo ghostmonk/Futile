@@ -78,8 +78,8 @@ public class FPDebugPolygonColliderView : FFacetElementNode
 	private FPPolygonalCollider _mesh2D;
 	private int _triangleCount; 
 	
-    private Color _color = FutileEngine.white;
-    private Color _alphaColor = FutileEngine.white;
+    private Color _color = FearsomeMonstrousBeast.white;
+    private Color _alphaColor = FearsomeMonstrousBeast.white;
 	
 	private bool _isMeshDirty = false;
 	private bool _areLocalVerticesDirty = false;
@@ -104,7 +104,7 @@ public class FPDebugPolygonColliderView : FFacetElementNode
 			_triangleCount += trianglePolygons[p].Length / 3;	
 		}
 		
-        Init(FacetType.Triangle, FutileEngine.atlasManager.GetElementWithName(elementName),_triangleCount);
+        Init(FacetType.Triangle, FearsomeMonstrousBeast.atlasManager.GetElementWithName(elementName),_triangleCount);
 		
 		_isAlphaDirty = true;
 		

@@ -93,10 +93,10 @@ public class BScorePage : BPage
     {
         //this will scale the background up to fit the screen
         //but it won't let it shrink smaller than 100%
-        _background.scale = Math.Max( Math.Max( 1.0f, FutileEngine.screen.height / _background.textureRect.height ), FutileEngine.screen.width / _background.textureRect.width );
+        _background.scale = Math.Max( Math.Max( 1.0f, FearsomeMonstrousBeast.screen.height / _background.textureRect.height ), FearsomeMonstrousBeast.screen.width / _background.textureRect.width );
          
-        _bestScoreLabel.x = FutileEngine.screen.halfWidth - 5;
-        _bestScoreLabel.y = -FutileEngine.screen.halfHeight + 5;
+        _bestScoreLabel.x = FearsomeMonstrousBeast.screen.halfWidth - 5;
+        _bestScoreLabel.y = -FearsomeMonstrousBeast.screen.halfHeight + 5;
     }
 
     private void HandleAgainButtonRelease( FButton button )

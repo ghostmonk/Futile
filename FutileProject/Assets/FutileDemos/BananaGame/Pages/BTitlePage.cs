@@ -61,16 +61,16 @@ public class BTitlePage : BPage
     {
         //this will scale the background up to fit the screen
         //but it won't let it shrink smaller than 100%
-        _background.scale = Math.Max( 1.0f, Math.Max( FutileEngine.screen.height / _background.textureRect.height, FutileEngine.screen.width / _background.textureRect.width ) );
+        _background.scale = Math.Max( 1.0f, Math.Max( FearsomeMonstrousBeast.screen.height / _background.textureRect.height, FearsomeMonstrousBeast.screen.width / _background.textureRect.width ) );
         
         _logoHolder.x = 0.0f;
         _logoHolder.y = 15.0f;
         
-        _startButton.x = FutileEngine.screen.halfWidth - 75.0f;
-        _startButton.y = -FutileEngine.screen.halfHeight + 35.0f;
+        _startButton.x = FearsomeMonstrousBeast.screen.halfWidth - 75.0f;
+        _startButton.y = -FearsomeMonstrousBeast.screen.halfHeight + 35.0f;
         
         //scale the logo so it fits on the main screen 
-        _logo.scale = Math.Min( 1.0f, FutileEngine.screen.width / _logo.textureRect.width );
+        _logo.scale = Math.Min( 1.0f, FearsomeMonstrousBeast.screen.width / _logo.textureRect.width );
         
     }
 

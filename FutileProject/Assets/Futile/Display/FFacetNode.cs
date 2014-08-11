@@ -101,7 +101,7 @@ public class FFacetElementNode : FFacetNode
 	
 	public void SetElementByName(string elementName)
 	{
-        this.element = FutileEngine.atlasManager.GetElementWithName(elementName);
+        this.element = FearsomeMonstrousBeast.atlasManager.GetElementWithName(elementName);
 	}
 	
 	public AtlasElement element

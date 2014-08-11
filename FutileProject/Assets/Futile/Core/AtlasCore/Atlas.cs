@@ -88,7 +88,7 @@ public class Atlas
         
         Dictionary<string,object> frames = (Dictionary<string,object>)dict[ "frames" ];
         
-        float scaleInverse = FutileEngine.resourceScaleInverse;
+        float scaleInverse = FearsomeMonstrousBeast.resourceScaleInverse;
         
         int index = 0;
         
@@ -99,7 +99,7 @@ public class Atlas
             
             string name = (string)item.Key;
             
-            if( FutileEngine.shouldRemoveAtlasElementFileExtensions ) {
+            if( FearsomeMonstrousBeast.shouldRemoveAtlasElementFileExtensions ) {
                 int extensionPosition = name.LastIndexOf( "." );
                 if( extensionPosition >= 0 )
                     name = name.Substring( 0, extensionPosition );
@@ -174,7 +174,7 @@ public class Atlas
         element.indexInAtlas = 0;
         
         //TODO: may have to offset the rect slightly
-        float scaleInverse = FutileEngine.resourceScaleInverse;
+        float scaleInverse = FearsomeMonstrousBeast.resourceScaleInverse;
         
         Rect uvRect = new Rect( 0.0f, 0.0f, 1.0f, 1.0f );
         
@@ -212,7 +212,7 @@ public class Atlas
         element.atlas = this;
         element.atlasIndex = Index;
         
-        float scaleInverse = FutileEngine.resourceScaleInverse;
+        float scaleInverse = FearsomeMonstrousBeast.resourceScaleInverse;
         
         //the uv coordinate rectangle within the atlas
         Rect uvRect = new Rect
@@ -267,7 +267,7 @@ public class Atlas
             
             elementsByName.Add( elementName, element );
             Elements.Add( element );
-            FutileEngine.atlasManager.AddElement( element );
+            FearsomeMonstrousBeast.atlasManager.AddElement( element );
         }
 
         UpdateElement( element, leftX, bottomY, pixelWidth, pixelHeight );

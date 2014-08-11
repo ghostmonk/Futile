@@ -128,7 +128,7 @@ public class FStage : FContainer
 		if(didNeedDepthUpdate)
 		{
 			_renderer.EndRender();
-            FutileEngine.touchManager.HandleDepthChange(); 
+            FearsomeMonstrousBeast.touchManager.HandleDepthChange(); 
 		}
 		
 		if(_doesRendererNeedTransformChange)

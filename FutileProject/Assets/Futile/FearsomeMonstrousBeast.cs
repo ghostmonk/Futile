@@ -6,9 +6,9 @@ using Futile.Core.Render;
 
 //FutileEngine by Matt Rix - 
 
-public class FutileEngine : MonoBehaviour 
+public class FearsomeMonstrousBeast : MonoBehaviour 
 {
-    static public FutileEngine instance = null;
+    static public FearsomeMonstrousBeast instance = null;
 	
 	
 	
@@ -192,7 +192,7 @@ public class FutileEngine : MonoBehaviour
 		plainWhiteTex.filterMode = FilterMode.Bilinear;
 		plainWhiteTex.wrapMode = TextureWrapMode.Clamp;
 		
-        Color white = FutileEngine.white;
+        Color white = FearsomeMonstrousBeast.white;
 		//Color clear = new Color(1,1,1,0);
 		
 		for(int r = 0; r<16; r++)

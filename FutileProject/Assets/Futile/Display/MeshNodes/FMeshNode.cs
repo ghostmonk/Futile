@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public class FMeshNode : FFacetElementNode
 {
-    protected Color _color = FutileEngine.white;
-    protected Color _alphaColor = FutileEngine.white;
+    protected Color _color = FearsomeMonstrousBeast.white;
+    protected Color _alphaColor = FearsomeMonstrousBeast.white;
 	
 	protected bool _isMeshDirty = false;
 
@@ -22,7 +22,7 @@ public class FMeshNode : FFacetElementNode
 	{
 	}
 
-    public FMeshNode (FacetType facetType, string elementName) : this(new FMeshData(facetType), FutileEngine.atlasManager.GetElementWithName(elementName))
+    public FMeshNode (FacetType facetType, string elementName) : this(new FMeshData(facetType), FearsomeMonstrousBeast.atlasManager.GetElementWithName(elementName))
 	{
 	}
 
@@ -30,7 +30,7 @@ public class FMeshNode : FFacetElementNode
 	{
 	}
 	
-    public FMeshNode (FMeshData meshData, string elementName) : this(meshData, FutileEngine.atlasManager.GetElementWithName(elementName))
+    public FMeshNode (FMeshData meshData, string elementName) : this(meshData, FearsomeMonstrousBeast.atlasManager.GetElementWithName(elementName))
 	{
 	}
 

@@ -40,7 +40,7 @@ public class FNode
         _concatenatedMatrix = new Matrix();
 
         #if UNITY_EDITOR
-        if(FutileEngine.instance.shouldTrackNodesInRXProfiler) 
+        if(FearsomeMonstrousBeast.instance.shouldTrackNodesInRXProfiler) 
             RXProfiler.TrackLifeCycle(this);
         #endif 
     }
@@ -118,7 +118,7 @@ public class FNode
         RemoveEnablerOfType( typeof( NodeEnablerForOrientationChange ) );
     }
 
-    public void ListenForPreUpdate( FutileEngine.FutileUpdateDelegate handleUpdateCallback )
+    public void ListenForPreUpdate( FearsomeMonstrousBeast.FutileUpdateDelegate handleUpdateCallback )
     {
         RemoveEnablerOfType( typeof( NodeEnablerForPreUpdate ) );
         AddEnabler( new NodeEnablerForPreUpdate( handleUpdateCallback ) );
@@ -129,7 +129,7 @@ public class FNode
         RemoveEnablerOfType( typeof( NodeEnablerForPreUpdate ) );
     }
     
-    public void ListenForUpdate( FutileEngine.FutileUpdateDelegate handleUpdateCallback )
+    public void ListenForUpdate( FearsomeMonstrousBeast.FutileUpdateDelegate handleUpdateCallback )
     {
         RemoveEnablerOfType( typeof( NodeEnablerForUpdate ) );
         AddEnabler( new NodeEnablerForUpdate( handleUpdateCallback ) );
@@ -140,7 +140,7 @@ public class FNode
         RemoveEnablerOfType( typeof( NodeEnablerForUpdate ) );
     }
 
-    public void ListenForAfterUpdate( FutileEngine.FutileUpdateDelegate handleUpdateCallback )
+    public void ListenForAfterUpdate( FearsomeMonstrousBeast.FutileUpdateDelegate handleUpdateCallback )
     {
         RemoveEnablerOfType( typeof( NodeEnablerForAfterUpdate ) );
         AddEnabler( new NodeEnablerForAfterUpdate( handleUpdateCallback ) );
@@ -151,7 +151,7 @@ public class FNode
         RemoveEnablerOfType( typeof( NodeEnablerForAfterUpdate ) );
     }
     
-    public void ListenForLateUpdate( FutileEngine.FutileUpdateDelegate handleUpdateCallback )
+    public void ListenForLateUpdate( FearsomeMonstrousBeast.FutileUpdateDelegate handleUpdateCallback )
     {
         RemoveEnablerOfType( typeof( NodeEnablerForLateUpdate ) );
         AddEnabler( new NodeEnablerForLateUpdate( handleUpdateCallback ) );
@@ -162,7 +162,7 @@ public class FNode
         RemoveEnablerOfType( typeof( NodeEnablerForLateUpdate ) );
     }
     
-    public void ListenForFixedUpdate( FutileEngine.FutileUpdateDelegate handleUpdateCallback )
+    public void ListenForFixedUpdate( FearsomeMonstrousBeast.FutileUpdateDelegate handleUpdateCallback )
     {
         RemoveEnablerOfType( typeof( NodeEnablerForFixedUpdate ) );
         AddEnabler( new NodeEnablerForFixedUpdate( handleUpdateCallback ) );
@@ -255,15 +255,15 @@ public class FNode
         UpdateMatrix();
         
         //the offsets account for the camera's 0,0 point (eg, center, bottom left, etc.)
-        float offsetX = -FutileEngine.screen.originX * FutileEngine.screen.pixelWidth;
-        float offsetY = -FutileEngine.screen.originY * FutileEngine.screen.pixelHeight;
+        float offsetX = -FearsomeMonstrousBeast.screen.originX * FearsomeMonstrousBeast.screen.pixelWidth;
+        float offsetY = -FearsomeMonstrousBeast.screen.originY * FearsomeMonstrousBeast.screen.pixelHeight;
         
         localVector = this.screenConcatenatedMatrix.GetNewTransformedVector( localVector );
         
         return new Vector2
         (
-                ( localVector.x / FutileEngine.displayScaleInverse ) - offsetX, 
-                ( localVector.y / FutileEngine.displayScaleInverse ) - offsetY
+                ( localVector.x / FearsomeMonstrousBeast.displayScaleInverse ) - offsetX, 
+                ( localVector.y / FearsomeMonstrousBeast.displayScaleInverse ) - offsetY
         );
     }
     
@@ -277,13 +277,13 @@ public class FNode
         UpdateMatrix();
         
         //the offsets account for the camera's 0,0 point (eg, center, bottom left, etc.)
-        float offsetX = -FutileEngine.screen.originX * FutileEngine.screen.pixelWidth;
-        float offsetY = -FutileEngine.screen.originY * FutileEngine.screen.pixelHeight;
+        float offsetX = -FearsomeMonstrousBeast.screen.originX * FearsomeMonstrousBeast.screen.pixelWidth;
+        float offsetY = -FearsomeMonstrousBeast.screen.originY * FearsomeMonstrousBeast.screen.pixelHeight;
         
         screenVector = new Vector2
         (
-                ( screenVector.x + offsetX ) * FutileEngine.displayScaleInverse, 
-                ( screenVector.y + offsetY ) * FutileEngine.displayScaleInverse
+                ( screenVector.x + offsetX ) * FearsomeMonstrousBeast.displayScaleInverse, 
+                ( screenVector.y + offsetY ) * FearsomeMonstrousBeast.displayScaleInverse
         );
         
         return this.screenInverseConcatenatedMatrix.GetNewTransformedVector( screenVector );

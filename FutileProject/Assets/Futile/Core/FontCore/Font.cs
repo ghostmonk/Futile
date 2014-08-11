@@ -85,7 +85,7 @@ public class Font
         CharInfo emptyChar = new CharInfo();
         _charInfosByID[ 0 ] = emptyChar;
         
-        float resourceScaleInverse = FutileEngine.resourceScaleInverse;
+        float resourceScaleInverse = FearsomeMonstrousBeast.resourceScaleInverse;
         
         Vector2 textureSize = _element.atlas.TextureSize;
 
@@ -161,11 +161,11 @@ public class Font
                     }
                     else if( partName == "x" )
                     {
-                        charInfo.x = partFloatValue * _configRatio - _element.sourceRect.x * FutileEngine.resourceScale; //offset to account for the trimmed atlas
+                        charInfo.x = partFloatValue * _configRatio - _element.sourceRect.x * FearsomeMonstrousBeast.resourceScale; //offset to account for the trimmed atlas
                     }
                     else if( partName == "y" )
                     {
-                        charInfo.y = partFloatValue * _configRatio - _element.sourceRect.y * FutileEngine.resourceScale; //offset to account for the trimmed atlas
+                        charInfo.y = partFloatValue * _configRatio - _element.sourceRect.y * FearsomeMonstrousBeast.resourceScale; //offset to account for the trimmed atlas
                     }
                     else if( partName == "width" )
                     {
@@ -458,7 +458,7 @@ public class Font
         charElement.uvRect = charInfo.uvRect;
         charElement.sourceRect = new Rect( 0, 0, charInfo.width, charInfo.height );
         charElement.sourceSize = new Vector2( charInfo.width, charInfo.height );
-        charElement.sourcePixelSize = new Vector2( charInfo.width * FutileEngine.resourceScale, charInfo.height * FutileEngine.resourceScale );
+        charElement.sourcePixelSize = new Vector2( charInfo.width * FearsomeMonstrousBeast.resourceScale, charInfo.height * FearsomeMonstrousBeast.resourceScale );
 
         Rect uvRect = charElement.uvRect;
 

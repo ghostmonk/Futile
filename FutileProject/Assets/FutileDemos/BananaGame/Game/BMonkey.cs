@@ -11,7 +11,7 @@ public class BMonkey : FSprite
 	{
 		_frameElements = new AtlasElement[19];
 		
-        AtlasManager am = FutileEngine.atlasManager;
+        AtlasManager am = FearsomeMonstrousBeast.atlasManager;
 		//of course there are way smarter ways to do this, but this is fast
 		//it's a ping ponging animation, which is why I did it this way, it's not a straight loop
 		_frameElements[0] = am.GetElementWithName("Monkey_0");

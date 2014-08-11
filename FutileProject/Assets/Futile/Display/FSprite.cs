@@ -6,8 +6,8 @@ public class FSprite : FFacetElementNode
 	public static float defaultAnchorX = 0.5f;
 	public static float defaultAnchorY = 0.5f;
 	
-    protected Color _color = FutileEngine.white;
-    protected Color _alphaColor = FutileEngine.white;
+    protected Color _color = FearsomeMonstrousBeast.white;
+    protected Color _alphaColor = FearsomeMonstrousBeast.white;
 	
 	protected Vector2[] _localVertices;
 	
@@ -25,7 +25,7 @@ public class FSprite : FFacetElementNode
 		_localVertices = new Vector2[4];
 	}
 	
-    public FSprite (string elementName) : this(FutileEngine.atlasManager.GetElementWithName(elementName))
+    public FSprite (string elementName) : this(FearsomeMonstrousBeast.atlasManager.GetElementWithName(elementName))
 	{
 	}
 	

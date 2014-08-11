@@ -20,121 +20,121 @@ public class NodeEnabler
 
 public class NodeEnablerForPreUpdate : NodeEnabler
 {
-    public FutileEngine.FutileUpdateDelegate handleUpdateCallback;
+    public FearsomeMonstrousBeast.FutileUpdateDelegate handleUpdateCallback;
 	
-    public NodeEnablerForPreUpdate(FutileEngine.FutileUpdateDelegate handleUpdateCallback)
+    public NodeEnablerForPreUpdate(FearsomeMonstrousBeast.FutileUpdateDelegate handleUpdateCallback)
 	{
 		this.handleUpdateCallback = handleUpdateCallback;	
 	}
 	
 	override public void Connect()
 	{
-        FutileEngine.instance.SignalPreUpdate += handleUpdateCallback;
+        FearsomeMonstrousBeast.instance.SignalPreUpdate += handleUpdateCallback;
 	}
 	
 	override public void Disconnect()
 	{
-        FutileEngine.instance.SignalPreUpdate -= handleUpdateCallback;
+        FearsomeMonstrousBeast.instance.SignalPreUpdate -= handleUpdateCallback;
 	}
 }
 
 
 public class NodeEnablerForUpdate : NodeEnabler
 {
-    public FutileEngine.FutileUpdateDelegate handleUpdateCallback;
+    public FearsomeMonstrousBeast.FutileUpdateDelegate handleUpdateCallback;
 	
-    public NodeEnablerForUpdate(FutileEngine.FutileUpdateDelegate handleUpdateCallback)
+    public NodeEnablerForUpdate(FearsomeMonstrousBeast.FutileUpdateDelegate handleUpdateCallback)
 	{
 		this.handleUpdateCallback = handleUpdateCallback;	
 	}
 	
 	override public void Connect()
 	{
-        FutileEngine.instance.SignalUpdate += handleUpdateCallback;
+        FearsomeMonstrousBeast.instance.SignalUpdate += handleUpdateCallback;
 	}
 	
 	override public void Disconnect()
 	{
-        FutileEngine.instance.SignalUpdate -= handleUpdateCallback;
+        FearsomeMonstrousBeast.instance.SignalUpdate -= handleUpdateCallback;
 	}
 }
 
 public class NodeEnablerForAfterUpdate : NodeEnabler
 {
-    public FutileEngine.FutileUpdateDelegate handleUpdateCallback;
+    public FearsomeMonstrousBeast.FutileUpdateDelegate handleUpdateCallback;
 	
-    public NodeEnablerForAfterUpdate(FutileEngine.FutileUpdateDelegate handleUpdateCallback)
+    public NodeEnablerForAfterUpdate(FearsomeMonstrousBeast.FutileUpdateDelegate handleUpdateCallback)
 	{
 		this.handleUpdateCallback = handleUpdateCallback;	
 	}
 	
 	override public void Connect()
 	{
-        FutileEngine.instance.SignalAfterUpdate += handleUpdateCallback;
+        FearsomeMonstrousBeast.instance.SignalAfterUpdate += handleUpdateCallback;
 	}
 	
 	override public void Disconnect()
 	{
-        FutileEngine.instance.SignalAfterUpdate -= handleUpdateCallback;
+        FearsomeMonstrousBeast.instance.SignalAfterUpdate -= handleUpdateCallback;
 	}
 }
 
 
 public class NodeEnablerForLateUpdate : NodeEnabler
 {
-    public FutileEngine.FutileUpdateDelegate handleUpdateCallback;
-    public NodeEnablerForLateUpdate(FutileEngine.FutileUpdateDelegate handleUpdateCallback)
+    public FearsomeMonstrousBeast.FutileUpdateDelegate handleUpdateCallback;
+    public NodeEnablerForLateUpdate(FearsomeMonstrousBeast.FutileUpdateDelegate handleUpdateCallback)
 	{
 		this.handleUpdateCallback = handleUpdateCallback;	
 	}
 	
 	override public void Connect()
 	{
-        FutileEngine.instance.SignalLateUpdate += handleUpdateCallback;
+        FearsomeMonstrousBeast.instance.SignalLateUpdate += handleUpdateCallback;
 	}
 	
 	override public void Disconnect()
 	{
-        FutileEngine.instance.SignalLateUpdate -= handleUpdateCallback;
+        FearsomeMonstrousBeast.instance.SignalLateUpdate -= handleUpdateCallback;
 	}
 }
 
 public class NodeEnablerForAfterDraw : NodeEnabler
 {
-    public FutileEngine.FutileUpdateDelegate handleUpdateCallback;
+    public FearsomeMonstrousBeast.FutileUpdateDelegate handleUpdateCallback;
 	
-    public NodeEnablerForAfterDraw(FutileEngine.FutileUpdateDelegate handleUpdateCallback)
+    public NodeEnablerForAfterDraw(FearsomeMonstrousBeast.FutileUpdateDelegate handleUpdateCallback)
 	{
 		this.handleUpdateCallback = handleUpdateCallback;	
 	}
 	
 	override public void Connect()
 	{
-        FutileEngine.instance.SignalAfterDraw += handleUpdateCallback;
+        FearsomeMonstrousBeast.instance.SignalAfterDraw += handleUpdateCallback;
 	}
 	
 	override public void Disconnect()
 	{
-        FutileEngine.instance.SignalAfterDraw -= handleUpdateCallback;
+        FearsomeMonstrousBeast.instance.SignalAfterDraw -= handleUpdateCallback;
 	}
 }
 public class NodeEnablerForFixedUpdate : NodeEnabler
 {
-    public FutileEngine.FutileUpdateDelegate handleUpdateCallback;
+    public FearsomeMonstrousBeast.FutileUpdateDelegate handleUpdateCallback;
 	
-    public NodeEnablerForFixedUpdate(FutileEngine.FutileUpdateDelegate handleUpdateCallback)
+    public NodeEnablerForFixedUpdate(FearsomeMonstrousBeast.FutileUpdateDelegate handleUpdateCallback)
 	{
 		this.handleUpdateCallback = handleUpdateCallback;	
 	}
 	
 	override public void Connect()
 	{
-        FutileEngine.instance.SignalFixedUpdate += handleUpdateCallback;
+        FearsomeMonstrousBeast.instance.SignalFixedUpdate += handleUpdateCallback;
 	}
 	
 	override public void Disconnect()
 	{
-        FutileEngine.instance.SignalFixedUpdate -= handleUpdateCallback;
+        FearsomeMonstrousBeast.instance.SignalFixedUpdate -= handleUpdateCallback;
 	}
 }
 
@@ -153,12 +153,12 @@ public class NodeEnablerForSingleTouch : NodeEnabler
 	
 	override public void Connect()
 	{
-        FutileEngine.touchManager.AddSingleTouchTarget(singleTouchable);	
+        FearsomeMonstrousBeast.touchManager.AddSingleTouchTarget(singleTouchable);	
 	}
 	
 	override public void Disconnect()
 	{
-        FutileEngine.touchManager.RemoveSingleTouchTarget(singleTouchable);	
+        FearsomeMonstrousBeast.touchManager.RemoveSingleTouchTarget(singleTouchable);	
 	}
 }
 
@@ -178,12 +178,12 @@ public class NodeEnablerForMultiTouch : NodeEnabler
 	
 	override public void Connect()
 	{
-		FutileEngine.touchManager.AddMultiTouchTarget(multiTouchable);	
+		FearsomeMonstrousBeast.touchManager.AddMultiTouchTarget(multiTouchable);	
 	}
 	
 	override public void Disconnect()
 	{
-        FutileEngine.touchManager.RemoveMultiTouchTarget(multiTouchable);	
+        FearsomeMonstrousBeast.touchManager.RemoveMultiTouchTarget(multiTouchable);	
 	}
 }
 
@@ -202,12 +202,12 @@ public class NodeEnablerForSmartTouch : NodeEnabler
 	
 	override public void Connect()
 	{
-        FutileEngine.touchManager.AddSmartTouchTarget(smartTouchable);	
+        FearsomeMonstrousBeast.touchManager.AddSmartTouchTarget(smartTouchable);	
 	}
 	
 	override public void Disconnect()
 	{
-        FutileEngine.touchManager.RemoveSmartTouchTarget(smartTouchable);	
+        FearsomeMonstrousBeast.touchManager.RemoveSmartTouchTarget(smartTouchable);	
 	}
 }
 public class NodeEnablerForResize : NodeEnabler
@@ -221,12 +221,12 @@ public class NodeEnablerForResize : NodeEnabler
 	
 	override public void Connect()
 	{
-        FutileEngine.screen.SignalResize += handleResizeCallback;
+        FearsomeMonstrousBeast.screen.SignalResize += handleResizeCallback;
 	}
 	
 	override public void Disconnect()
 	{
-        FutileEngine.screen.SignalResize -= handleResizeCallback;
+        FearsomeMonstrousBeast.screen.SignalResize -= handleResizeCallback;
 	}
 }
 
@@ -241,12 +241,12 @@ public class NodeEnablerForOrientationChange : NodeEnabler
 	
 	override public void Connect()
 	{
-        FutileEngine.screen.SignalOrientationChange += handleOrientationChangeCallback;
+        FearsomeMonstrousBeast.screen.SignalOrientationChange += handleOrientationChangeCallback;
 	}
 	
 	override public void Disconnect()
 	{
-        FutileEngine.screen.SignalOrientationChange -= handleOrientationChangeCallback;
+        FearsomeMonstrousBeast.screen.SignalOrientationChange -= handleOrientationChangeCallback;
 	}
 }
 

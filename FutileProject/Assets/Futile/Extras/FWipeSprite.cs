@@ -10,7 +10,7 @@ public class FWipeSprite : FSprite
 	
 	public FWipeSprite (string elementName) : base()
 	{
-        Init(FacetType.Quad, FutileEngine.atlasManager.GetElementWithName(elementName),1);
+        Init(FacetType.Quad, FearsomeMonstrousBeast.atlasManager.GetElementWithName(elementName),1);
 		
 		_isAlphaDirty = true; 
 		

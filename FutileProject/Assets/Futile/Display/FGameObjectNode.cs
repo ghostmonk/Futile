@@ -45,7 +45,7 @@ public class FGameObjectNode : FNode, IRenderableLayer
 	{
 		if(_isOnStage)
 		{
-            _gameObject.transform.parent = FutileEngine.instance.gameObject.transform;
+            _gameObject.transform.parent = FearsomeMonstrousBeast.instance.gameObject.transform;
 			
 			if(_gameObject.renderer != null && _gameObject.renderer.material != null)
 			{
@@ -73,7 +73,7 @@ public class FGameObjectNode : FNode, IRenderableLayer
 			base.HandleAddedToStage();
 			
 			_stage.HandleFacetsChanged();
-            _gameObject.transform.parent = FutileEngine.instance.gameObject.transform;
+            _gameObject.transform.parent = FearsomeMonstrousBeast.instance.gameObject.transform;
 			UpdateGameObject();
 		}
 	}
@@ -138,7 +138,7 @@ public class FGameObjectNode : FNode, IRenderableLayer
 	
 	virtual public void Update(int depth)
 	{
-        _renderQueueDepth = FutileEngine.baseRenderQueueDepth+depth;
+        _renderQueueDepth = FearsomeMonstrousBeast.baseRenderQueueDepth+depth;
 		
 		if(_gameObject.renderer != null && _gameObject.renderer.material != null)
 		{

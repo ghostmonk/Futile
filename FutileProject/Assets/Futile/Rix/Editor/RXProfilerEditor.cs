@@ -17,17 +17,17 @@ public class RXProfilerEditor : Editor
     public void OnEnable()
     {
         //update when selected
-        if(FutileEngine.instance != null)
+        if(FearsomeMonstrousBeast.instance != null)
         {
-            FutileEngine.instance.SignalUpdate += HandleSignalUpdate;
+            FearsomeMonstrousBeast.instance.SignalUpdate += HandleSignalUpdate;
         }
     }
 
     public void OnDisable()
     {
-        if(FutileEngine.instance != null)
+        if(FearsomeMonstrousBeast.instance != null)
         {
-            FutileEngine.instance.SignalUpdate -= HandleSignalUpdate;
+            FearsomeMonstrousBeast.instance.SignalUpdate -= HandleSignalUpdate;
         }
     }
 

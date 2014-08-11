@@ -44,7 +44,7 @@ public class FContainer : FNode
 			
 			if(_shouldSortByZ) 
 			{
-                FutileEngine.instance.SignalAfterUpdate += HandleUpdateAndSort;
+                FearsomeMonstrousBeast.instance.SignalAfterUpdate += HandleUpdateAndSort;
 			}
 		}
 		
@@ -66,7 +66,7 @@ public class FContainer : FNode
 			
 			if(_shouldSortByZ)
 			{
-                FutileEngine.instance.SignalAfterUpdate -= HandleUpdateAndSort;
+                FearsomeMonstrousBeast.instance.SignalAfterUpdate -= HandleUpdateAndSort;
 			}
 		}
 	}
@@ -210,14 +210,14 @@ public class FContainer : FNode
 				{
 					if(_isOnStage) 
 					{
-                        FutileEngine.instance.SignalAfterUpdate += HandleUpdateAndSort;
+                        FearsomeMonstrousBeast.instance.SignalAfterUpdate += HandleUpdateAndSort;
 					}
 				}
 				else 
 				{
 					if(_isOnStage) 
 					{
-                        FutileEngine.instance.SignalAfterUpdate -= HandleUpdateAndSort;
+                        FearsomeMonstrousBeast.instance.SignalAfterUpdate -= HandleUpdateAndSort;
 					}
 				}
 			}

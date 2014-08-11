@@ -27,7 +27,7 @@ public class FRepeatSprite : FSprite
 		_scrollX = scrollX;
 		_scrollY = scrollY;
 		
-        Init(FacetType.Quad, FutileEngine.atlasManager.GetElementWithName(elementName),1);
+        Init(FacetType.Quad, FearsomeMonstrousBeast.atlasManager.GetElementWithName(elementName),1);
 		
 		if(!_element.atlas.IsSingleImage)
 		{
@@ -42,8 +42,8 @@ public class FRepeatSprite : FSprite
 	override public void HandleElementChanged()
 	{
 		base.HandleElementChanged();
-        _textureWidth = _element.atlas.TextureSize.x * FutileEngine.resourceScaleInverse;
-        _textureHeight = _element.atlas.TextureSize.y * FutileEngine.resourceScaleInverse;
+        _textureWidth = _element.atlas.TextureSize.x * FearsomeMonstrousBeast.resourceScaleInverse;
+        _textureHeight = _element.atlas.TextureSize.y * FearsomeMonstrousBeast.resourceScaleInverse;
 
 		_areLocalVerticesDirty = true;
 		UpdateLocalVertices();

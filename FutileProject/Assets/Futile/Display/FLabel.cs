@@ -16,8 +16,8 @@ public class FLabel : FFacetElementNode
 	protected string _fontName;
 	protected string _text;
 	
-    protected Color _color = FutileEngine.white;
-    protected Color _alphaColor = FutileEngine.white;
+    protected Color _color = FearsomeMonstrousBeast.white;
+    protected Color _alphaColor = FearsomeMonstrousBeast.white;
 	
 	protected LetterQuadLine[] _letterQuadLines;
 	
@@ -44,7 +44,7 @@ public class FLabel : FFacetElementNode
 	{
 		_fontName = fontName;
 		_text = text;
-        _font = FutileEngine.atlasManager.GetFontWithName(_fontName);
+        _font = FearsomeMonstrousBeast.atlasManager.GetFontWithName(_fontName);
 		_textParams = textParams;
 
 		Init(FacetType.Quad, _font.element, 0);
@@ -189,8 +189,8 @@ public class FLabel : FFacetElementNode
 			{
 				matrixToUse = matrixToUse.Clone();
 
-                matrixToUse.tx += (Mathf.Round(topLeft.x * FutileEngine.displayScale) * FutileEngine.displayScaleInverse) - topLeft.x;
-                matrixToUse.ty += (Mathf.Round(topLeft.y * FutileEngine.displayScale) * FutileEngine.displayScaleInverse) - topLeft.y;
+                matrixToUse.tx += (Mathf.Round(topLeft.x * FearsomeMonstrousBeast.displayScale) * FearsomeMonstrousBeast.displayScaleInverse) - topLeft.x;
+                matrixToUse.ty += (Mathf.Round(topLeft.y * FearsomeMonstrousBeast.displayScale) * FearsomeMonstrousBeast.displayScaleInverse) - topLeft.y;
 			}
 			
 			int lineCount = _letterQuadLines.Length;

@@ -227,7 +227,7 @@ public class FScreen
             _resLevel = _futileParams.resLevels.GetLastItem();  
         }
         
-        FutileEngine.resourceSuffix = _resLevel.resourceSuffix;
+        FearsomeMonstrousBeast.resourceSuffix = _resLevel.resourceSuffix;
         
         //this is what helps us figure out the display scale if we're not at a specific resolution level
         //it's relative to the next highest resolution level
@@ -239,22 +239,22 @@ public class FScreen
             displayScaleModifier = checkLength / _resLevel.maxLength;
         }
          
-        FutileEngine.displayScale = _resLevel.displayScale * displayScaleModifier;
-        FutileEngine.displayScaleInverse = 1.0f / FutileEngine.displayScale;
+        FearsomeMonstrousBeast.displayScale = _resLevel.displayScale * displayScaleModifier;
+        FearsomeMonstrousBeast.displayScaleInverse = 1.0f / FearsomeMonstrousBeast.displayScale;
         
-        FutileEngine.resourceScale = _resLevel.resourceScale;
-        FutileEngine.resourceScaleInverse = 1.0f / FutileEngine.resourceScale;
+        FearsomeMonstrousBeast.resourceScale = _resLevel.resourceScale;
+        FearsomeMonstrousBeast.resourceScaleInverse = 1.0f / FearsomeMonstrousBeast.resourceScale;
 
-        width = pixelWidth * FutileEngine.displayScaleInverse;
-        height = pixelHeight * FutileEngine.displayScaleInverse;
+        width = pixelWidth * FearsomeMonstrousBeast.displayScaleInverse;
+        height = pixelHeight * FearsomeMonstrousBeast.displayScaleInverse;
         
-        if( FutileEngine.isOpenGL )
+        if( FearsomeMonstrousBeast.isOpenGL )
         {
-            FutileEngine.screenPixelOffset = 0;
+            FearsomeMonstrousBeast.screenPixelOffset = 0;
         }
         else //directX needs to be offset by half a pixel
         {
-            FutileEngine.screenPixelOffset = 0.5f * FutileEngine.displayScaleInverse;
+            FearsomeMonstrousBeast.screenPixelOffset = 0.5f * FearsomeMonstrousBeast.displayScaleInverse;
         }
         
         halfWidth = width / 2.0f;
@@ -263,9 +263,9 @@ public class FScreen
         _originX = _futileParams.origin.x;
         _originY = _futileParams.origin.y;
         
-        Debug.Log( "Futile: Display scale is " + FutileEngine.displayScale );
+        Debug.Log( "Futile: Display scale is " + FearsomeMonstrousBeast.displayScale );
         
-        Debug.Log( "Futile: Resource scale is " + FutileEngine.resourceScale );
+        Debug.Log( "Futile: Resource scale is " + FearsomeMonstrousBeast.resourceScale );
         
         Debug.Log( "Futile: Resource suffix is " + _resLevel.resourceSuffix );
         
@@ -368,13 +368,13 @@ public class FScreen
             pixelHeight = _screenShortLength;
         }
         
-        width = pixelWidth * FutileEngine.displayScaleInverse;
-        height = pixelHeight * FutileEngine.displayScaleInverse;
+        width = pixelWidth * FearsomeMonstrousBeast.displayScaleInverse;
+        height = pixelHeight * FearsomeMonstrousBeast.displayScaleInverse;
         
         halfWidth = width / 2.0f;
         halfHeight = height / 2.0f;
         
-        FutileEngine.instance.UpdateCameraPosition();     
+        FearsomeMonstrousBeast.instance.UpdateCameraPosition();     
     }
     
     public float originX
@@ -385,7 +385,7 @@ public class FScreen
             if( _originX != value )
             {
                 _originX = value;
-                FutileEngine.instance.UpdateCameraPosition();
+                FearsomeMonstrousBeast.instance.UpdateCameraPosition();
             }
         }
     }
@@ -398,7 +398,7 @@ public class FScreen
             if( _originY != value )
             {
                 _originY = value;
-                FutileEngine.instance.UpdateCameraPosition();
+                FearsomeMonstrousBeast.instance.UpdateCameraPosition();
             }
         }
     }

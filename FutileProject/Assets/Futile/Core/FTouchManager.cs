@@ -164,11 +164,11 @@ public class FTouchManager
         FMultiTouchableInterface[] tempMultiTouchables = _multiTouchables.ToArray();
         FCapturedTouchableInterface[] tempCapturedTouchables = _capturedTouchables.ToArray();
 
-        float touchScale = 1.0f / FutileEngine.displayScale;
+        float touchScale = 1.0f / FearsomeMonstrousBeast.displayScale;
         
         //the offsets account for the camera's 0,0 point (eg, center, bottom left, etc.)
-        float offsetX = - FutileEngine.screen.originX * FutileEngine.screen.pixelWidth;
-        float offsetY = - FutileEngine.screen.originY * FutileEngine.screen.pixelHeight;
+        float offsetX = - FearsomeMonstrousBeast.screen.originX * FearsomeMonstrousBeast.screen.pixelWidth;
+        float offsetY = - FearsomeMonstrousBeast.screen.originY * FearsomeMonstrousBeast.screen.pixelHeight;
         
         //Debug.Log ("Touch offset " + offsetX + " , " + offsetY);
         

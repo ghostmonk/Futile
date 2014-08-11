@@ -397,7 +397,7 @@ public class FMeshVertex
 	public float u;
 	public float v;
 
-    public Color color = FutileEngine.white;
+    public Color color = FearsomeMonstrousBeast.white;
 
 	public FMeshVertex()
 	{
