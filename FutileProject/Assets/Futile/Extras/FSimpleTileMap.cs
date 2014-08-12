@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using Futile.Core.AtlasCore;
 
 public class FSimpleTileMap : FMeshNode
 {

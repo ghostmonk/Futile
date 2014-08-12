@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Futile.Core.Render;
+using Futile.Core.AtlasCore;
 
 //FutileEngine by Matt Rix - 
 

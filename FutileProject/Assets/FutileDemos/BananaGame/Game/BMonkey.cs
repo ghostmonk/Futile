@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Futile.Core.AtlasCore;
 
 public class BMonkey : FSprite
 {
