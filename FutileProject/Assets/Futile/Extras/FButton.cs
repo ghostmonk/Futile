@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System;
 using Futile.Core.AtlasCore;
+using Futile.Core.FontCore;
 
 public class FButton : FContainer, FSingleTouchableInterface
 {

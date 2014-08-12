@@ -3,6 +3,8 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Futile.Core.Exceptions;
+using Futile.Core.FontCore;
+using Font = Futile.Core.FontCore.Font;
 
 namespace Futile.Core.AtlasCore
 {
