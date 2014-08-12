@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Futile.Core.Exceptions;
 
 public class FUnityParticleSystemNode : FGameObjectNode
 {

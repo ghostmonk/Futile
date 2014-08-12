@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using Futile.Core.AtlasCore;
+using Futile.Core.Exceptions;
 
 public class FSimpleTileMap : FMeshNode
 {

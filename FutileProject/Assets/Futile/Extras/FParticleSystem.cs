@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using Futile.Core.AtlasCore;
+using Futile.Core.Exceptions;
 
 public class FParticleSystem : FFacetNode
 {

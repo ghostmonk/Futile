@@ -1,13 +1,15 @@
 using System;
 
-public class FutileException : Exception
+namespace Futile.Core.Exceptions
 {
-    public FutileException( string message ) : base(message)
+    public class FutileException : Exception
     {
-    }
-    
-    public FutileException() : base()
-    {
+        public FutileException( string message ) : base(message)
+        {
+        }
+        
+        public FutileException() : base()
+        {
+        }
     }
 }
-

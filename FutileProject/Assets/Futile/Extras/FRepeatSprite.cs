@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using Futile.Core.Exceptions;
 
 public class FRepeatSprite : FSprite
 {
