@@ -24,11 +24,7 @@ public class FScreen
     public delegate void ScreenResizeDelegate (bool wasResizedDueToOrientationChange);
 
     public event ScreenResizeDelegate SignalResize; 
-    
-    
-    
-    
-    
+
     //this is populated by the FutileParams
     private float _originX;
     private float _originY;

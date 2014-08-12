@@ -1,5 +1,3 @@
-// //Written by ghostmonk
-
 using System;
 using UnityEngine;
 using System.Collections;
@@ -11,7 +9,7 @@ using System.Collections.Generic;
 
 public class LetterQuadLine
 {
-	public Rect bounds;
-	public int letterCount;
-	public LetterQuad[] quads;
+    public Rect bounds;
+    public int letterCount;
+    public LetterQuad[] quads;
 }

@@ -16,8 +16,7 @@ public class RXProfilerEditor : Editor
 
     public void OnEnable()
     {
-        //update when selected
-        if(FearsomeMonstrousBeast.instance != null)
+        if( FearsomeMonstrousBeast.instance != null )
         {
             FearsomeMonstrousBeast.instance.SignalUpdate += HandleSignalUpdate;
         }
@@ -30,25 +29,25 @@ public class RXProfilerEditor : Editor
             FearsomeMonstrousBeast.instance.SignalUpdate -= HandleSignalUpdate;
         }
     }
-
-    private void HandleSignalUpdate ()
-    {
-        if(Time.frameCount % 30 == 0) //update every 30 frames
-        {
-            Repaint();
-        }
-    }
-
+    
     override public void OnInspectorGUI() 
     {
         foreach(KeyValuePair<Type, List<WeakReference>> entry in RXProfiler.instancesByType)
         {
             int instanceCount = entry.Value.Count;
-
+            
             if(instanceCount > 0)
             {
                 GUILayout.Label(entry.Key.Name + " : " + instanceCount,EditorStyles.boldLabel);
             }
+        }
+    }
+
+    private void HandleSignalUpdate() 
+    {
+        if(Time.frameCount % 30 == 0) //update every 30 frames
+        {
+            Repaint();
         }
     }
 }

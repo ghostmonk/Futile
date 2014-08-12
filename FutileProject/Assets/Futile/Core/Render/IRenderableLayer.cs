@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public interface IRenderableLayer
 {
-	void Update(int depth);
-	void PostUpdate();
+    void Update( int depth );
+
+    void PostUpdate();
 }

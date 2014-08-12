@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using System;
 
 public class BInGamePage : BPage, FMultiTouchableInterface
-{
-    
+{   
     private FSprite _background;
     private FButton _closeButton;
     private FLabel _scoreLabel;

@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class RXDestroyOnAwake : MonoBehaviour
 {
-	public void Awake()
-	{
-		UnityEngine.Object.Destroy(gameObject);
-	}
+    public void Awake()
+    {
+        UnityEngine.Object.Destroy( gameObject );
+    }
 }
 

@@ -4,140 +4,150 @@ using System.Collections.Generic;
 
 public class FSimpleTileMap : FMeshNode
 {
-	protected AtlasElement[] _elements;
+    protected AtlasElement[] _elements;
+    protected int _cols;
+    protected int _rows;
+    protected float _tileWidth;
+    protected float _tileHeight;
+    protected float _anchorX = 0.5f;
+    protected float _anchorY = 0.5f;
 
-	protected int _cols;
-	protected int _rows;
+    //a simple tile map that takes an array of elements and renders it
+    //note: the elements must all belong to the same atlas
+    //note: elements.Length should equal cols*rows
 
-	protected float _tileWidth;
-	protected float _tileHeight;
-	
-	protected float _anchorX = 0.5f;
-	protected float _anchorY = 0.5f;
+    public FSimpleTileMap( AtlasElement[] elements, int cols, int rows, float tileWidth, float tileHeight ) : base()
+    {
+        _elements = elements;
 
-	//a simple tile map that takes an array of elements and renders it
-	//note: the elements must all belong to the same atlas
-	//note: elements.Length should equal cols*rows
+        _cols = cols;
+        _rows = rows;
 
-	public FSimpleTileMap (AtlasElement[] elements, int cols, int rows, float tileWidth, float tileHeight) : base()
-	{
-		_elements = elements;
+        _tileWidth = tileWidth;
+        _tileHeight = tileHeight;
 
-		_cols = cols;
-		_rows = rows;
+        if( _elements.Length != _cols * _rows )
+        {
+            throw new FutileException( "FSimpleTileMap - the number of elements does not match the number of rows and columns. It should be cols*rows = elements.Length" );
+        }
+        
+        Init( new FMeshData( FacetType.Quad ), _elements[ 0 ].atlas.FullElement );
 
-		_tileWidth = tileWidth;
-		_tileHeight = tileHeight;
+        UpdateMesh();
+    }
 
-		if(_elements.Length != _cols*_rows)
-		{
-			throw new FutileException("FSimpleTileMap - the number of elements does not match the number of rows and columns. It should be cols*rows = elements.Length");
-		}
-		
-		Init(new FMeshData(FacetType.Quad), _elements[0].atlas.FullElement);
+    public void UpdateMesh()
+    {
+        int tileCount = _elements.Length;
 
-		UpdateMesh();
-	}
+        _meshData.SetFacetCount( tileCount );
 
-	public void UpdateMesh()
-	{
-		int tileCount = _elements.Length;
+        float width = _cols * _tileWidth;
+        float height = _rows * _tileHeight;
 
-		_meshData.SetFacetCount(tileCount);
+        float offsetX = -_anchorX * width;
+        float offsetY = -_anchorY * height;
 
-		float width = _cols*_tileWidth;
-		float height = _rows*_tileHeight;
+        List<FMeshFacet> quads = _meshData.facets;
 
-		float offsetX = -_anchorX*width;
-		float offsetY = -_anchorY*height;
+        int i = 0;
+        for( int r = 0; r<_rows; r++ )
+        {
+            for( int c = 0; c<_cols; c++ )
+            {
+                FMeshQuad quad = (FMeshQuad)quads[ i ];
 
-		List<FMeshFacet>quads = _meshData.facets;
+                quad.SetUVRectFromElement( _elements[ i ] );
+                quad.SetPosRect( offsetX + c * _tileWidth, offsetY + r * _tileHeight, _tileWidth, _tileHeight );
 
-		int i = 0;
-		for(int r = 0; r<_rows; r++)
-		{
-			for(int c = 0; c<_cols; c++)
-			{
-				FMeshQuad quad = (FMeshQuad)quads[i];
+                i++;
+            }
+        }
 
-				quad.SetUVRectFromElement(_elements[i]);
-				quad.SetPosRect(offsetX+c*_tileWidth,offsetY+r*_tileHeight,_tileWidth,_tileHeight);
+        _meshData.MarkChanged();
+    }
 
-				i++;
-			}
-		}
+    public Vector2 GetTilePosition( int col, int row )
+    {
+        float offsetX = -_anchorX * width;
+        float offsetY = -_anchorY * height;
+        return new Vector2( offsetX + ( col * _tileWidth ) + _tileWidth / 2, offsetY + ( row * _tileHeight ) + _tileHeight / 2 );
+    }
 
-		_meshData.MarkChanged();
-	}
+    public AtlasElement GetTileElement( int col, int row )
+    {
+        if( col < 0 )
+        {
+            return null;
+        }
+        if( col >= _cols )
+        {
+            return null;
+        }
+        if( row < 0 )
+        {
+            return null;
+        }
+        if( row >= _rows )
+        {
+            return null;
+        }
 
-	public Vector2 GetTilePosition(int col, int row)
-	{
-		float offsetX = -_anchorX*width;
-		float offsetY = -_anchorY*height;
-		return new Vector2(offsetX + (col * _tileWidth) + _tileWidth/2, offsetY + (row*_tileHeight) + _tileHeight/2);
-	}
+        return _elements[ row * _cols + row ];
+    }
 
-	public AtlasElement GetTileElement(int col, int row)
-	{
-		if(col < 0) return null;
-		if(col >= _cols) return null;
-		if(row < 0) return null;
-		if(row >= _rows) return null;
+    public AtlasElement[] elements
+    {
+        set { _elements = elements;
+            UpdateMesh();}
+        get { return _elements;}
+    }
+    
+    public float width
+    {
+        get { return _cols * _tileWidth; }
+    }
+    
+    public float height
+    {
+        get { return _rows * _tileHeight;}
+    }
 
-		return _elements[row*_cols + row];
-	}
+    //TODO: allow user to change the elements
 
-	public AtlasElement[] elements
-	{
-		set {_elements = elements; UpdateMesh();}
-		get {return _elements;}
-	}
-	
-	public float width
-	{
-		get { return _cols*_tileWidth; }
-	}
-	
-	public float height
-	{
-		get { return _rows*_tileHeight;}
-	}
-
-	//TODO: allow user to change the elements
-
-	public void SetAnchor(float anchorX, float anchorY)
-	{
-		_anchorX = anchorX;
-		_anchorY = anchorY;
-		UpdateMesh();
-	}
-	
-	public float anchorX 
-	{
-		get { return _anchorX;}
-		set 
-		{ 
-			if(_anchorX != value)
-			{
-				_anchorX = value; 
-				UpdateMesh();
-			}
-		}
-	}
-	
-	public float anchorY 
-	{
-		get { return _anchorY;}
-		set 
-		{ 
-			if(_anchorY != value)
-			{
-				_anchorY = value; 
-				UpdateMesh();
-			}
-		}
-	}
-	
+    public void SetAnchor( float anchorX, float anchorY )
+    {
+        _anchorX = anchorX;
+        _anchorY = anchorY;
+        UpdateMesh();
+    }
+    
+    public float anchorX
+    {
+        get { return _anchorX;}
+        set
+        { 
+            if( _anchorX != value )
+            {
+                _anchorX = value; 
+                UpdateMesh();
+            }
+        }
+    }
+    
+    public float anchorY
+    {
+        get { return _anchorY;}
+        set
+        { 
+            if( _anchorY != value )
+            {
+                _anchorY = value; 
+                UpdateMesh();
+            }
+        }
+    }
+    
 }
 
 

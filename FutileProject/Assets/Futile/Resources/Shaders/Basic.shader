@@ -2,37 +2,37 @@
 
 Shader "Futile/Basic" //Unlit Transparent Vertex Colored
 {
-	Properties 
-	{
-		_MainTex ("Base (RGB) Trans (A)", 2D) = "white" {}
-	}
-	
-	Category 
-	{
-		Tags {"Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent"}
-		ZWrite Off
-		ZTest Always
-		Blend SrcAlpha OneMinusSrcAlpha 
-		Fog { Mode Off }
-		Lighting Off
-		Cull Off //we can turn backface culling off because we know nothing will be facing backwards
+    Properties 
+    {
+        _MainTex ("Base (RGB) Trans (A)", 2D) = "white" {}
+    }
 
-		BindChannels 
-		{
-			Bind "Vertex", vertex
-			Bind "texcoord", texcoord 
-			Bind "Color", color 
-		}
+    Category 
+    {
+        Tags {"Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent"}
+        ZWrite Off
+        ZTest Always
+        Blend SrcAlpha OneMinusSrcAlpha 
+        Fog { Mode Off }
+        Lighting Off
+        Cull Off //we can turn backface culling off because we know nothing will be facing backwards
 
-		SubShader   
-		{
-			Pass 
-			{
-				SetTexture [_MainTex] 
-				{
-					Combine texture * primary
-				}
-			}
-		} 
-	}
+        BindChannels 
+        {
+            Bind "Vertex", vertex
+            Bind "texcoord", texcoord 
+            Bind "Color", color 
+        }
+
+        SubShader   
+        {
+            Pass 
+            {
+                SetTexture [_MainTex] 
+                {
+                    Combine texture * primary
+                }
+            }
+        } 
+    }
 }
