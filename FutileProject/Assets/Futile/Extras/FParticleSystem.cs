@@ -1,4 +1,5 @@
 using System;
+using Futile;
 using UnityEngine;
 using Futile.Core.AtlasCore;
 using Futile.Core.Exceptions;
@@ -39,7 +40,7 @@ public class FParticleSystem : FFacetNode
         
         if( _hasInited )
         {
-            if( element.atlas != _atlas )
+            if( element.Atlas != _atlas )
             {
                 throw new FutileException( "All elements added to a particle system must be from the same atlas" );
             }
@@ -47,7 +48,7 @@ public class FParticleSystem : FFacetNode
         else
         {
             _hasInited = true;
-            Init( FacetType.Quad, element.atlas, _maxParticleCount );
+            Init( FacetType.Quad, element.Atlas, _maxParticleCount );
             if( stage != null )
             {
                 stage.HandleFacetsChanged();
@@ -107,13 +108,13 @@ public class FParticleSystem : FFacetNode
         particle.blueDeltaPerSecond = ( endColor.b - startColor.b ) * lifetimeInverse;
         particle.alphaDeltaPerSecond = ( endColor.a - startColor.a ) * lifetimeInverse;
         
-        particle.elementHalfWidth = element.sourceSize.x * 0.5f;
-        particle.elementHalfHeight = element.sourceSize.y * 0.5f;
+        particle.elementHalfWidth = element.SourceSize.x * 0.5f;
+        particle.elementHalfHeight = element.SourceSize.y * 0.5f;
         
-        particle.uvTopLeft = element.uvTopLeft;
-        particle.uvTopRight = element.uvTopRight;
-        particle.uvBottomRight = element.uvBottomRight;
-        particle.uvBottomLeft = element.uvBottomLeft;
+        particle.uvTopLeft = element.UvTopLeft;
+        particle.uvTopRight = element.UvTopRight;
+        particle.uvBottomRight = element.UvBottomRight;
+        particle.uvBottomLeft = element.UvBottomLeft;
 
         particle.initialTopLeft = new Vector2( -particle.elementHalfWidth, particle.elementHalfHeight );
         particle.initialTopRight = new Vector2( particle.elementHalfWidth, particle.elementHalfHeight );

@@ -1,4 +1,5 @@
 using System;
+using Futile;
 using UnityEngine;
 using System.Collections.Generic;
 using Futile.Core.AtlasCore;
@@ -354,10 +355,10 @@ public class FMeshQuad : FMeshFacet
 
     public FMeshQuad SetUVRectFromElement( AtlasElement element ) //creates a uv rect that represents the element within the atlas
     {
-        float leftX = element.uvRect.xMin;
-        float rightX = element.uvRect.xMax;
-        float bottomY = element.uvRect.yMin;
-        float topY = element.uvRect.yMax;
+        float leftX = element.UvRect.xMin;
+        float rightX = element.UvRect.xMax;
+        float bottomY = element.UvRect.yMin;
+        float topY = element.UvRect.yMax;
 
         vertices[ 0 ].SetUV( leftX, topY );
         vertices[ 1 ].SetUV( rightX, topY );

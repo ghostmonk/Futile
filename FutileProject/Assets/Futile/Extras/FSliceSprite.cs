@@ -1,3 +1,4 @@
+using Futile;
 using UnityEngine;
 using System;
 using Futile.Core.AtlasCore;
@@ -84,17 +85,17 @@ public class FSliceSprite : FSprite
     {
         _areLocalVerticesDirty = false;
         
-        Rect uvRect = element.uvRect;
+        Rect uvRect = element.UvRect;
         
-        float itop = Math.Max(0,Math.Min(_insetTop, _element.sourceSize.y-_insetBottom));
-        float iright = Math.Max(0,Math.Min(_insetRight, _element.sourceSize.x-_insetLeft));
-        float ibottom = Math.Max(0,Math.Min(_insetBottom, _element.sourceSize.y-_insetTop));
-        float ileft = Math.Max(0,Math.Min(_insetLeft, _element.sourceSize.x-_insetRight));
+        float itop = Math.Max(0,Math.Min(_insetTop, _element.SourceSize.y-_insetBottom));
+        float iright = Math.Max(0,Math.Min(_insetRight, _element.SourceSize.x-_insetLeft));
+        float ibottom = Math.Max(0,Math.Min(_insetBottom, _element.SourceSize.y-_insetTop));
+        float ileft = Math.Max(0,Math.Min(_insetLeft, _element.SourceSize.x-_insetRight));
         
-        float uvtop = uvRect.height*(itop/_element.sourceSize.y);
-        float uvleft = uvRect.width*(ileft/_element.sourceSize.x);
-        float uvbottom = uvRect.height*(ibottom/_element.sourceSize.y);
-        float uvright = uvRect.width*(iright/_element.sourceSize.x);
+        float uvtop = uvRect.height*(itop/_element.SourceSize.y);
+        float uvleft = uvRect.width*(ileft/_element.SourceSize.x);
+        float uvbottom = uvRect.height*(ibottom/_element.SourceSize.y);
+        float uvright = uvRect.width*(iright/_element.SourceSize.x);
         
         _textureRect.x = -_anchorX*_width;
         _textureRect.y = -_anchorY*_height;

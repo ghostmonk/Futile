@@ -1,3 +1,4 @@
+using Futile;
 using UnityEngine;
 using System;
 using Futile.Core.Exceptions;
@@ -30,7 +31,7 @@ public class FRepeatSprite : FSprite
         
         Init( FacetType.Quad, FearsomeMonstrousBeast.atlasManager.GetElementWithName( elementName ), 1 );
         
-        if( !_element.atlas.IsSingleImage )
+        if( !_element.Atlas.IsSingleImage )
         {
             throw new FutileException( "FRepeatSprite must be used with a single image, not an atlas! Use Futile.atlasManager.LoadImage()" );
         }   
@@ -43,8 +44,8 @@ public class FRepeatSprite : FSprite
     override public void HandleElementChanged()
     {
         base.HandleElementChanged();
-        _textureWidth = _element.atlas.TextureSize.x * FearsomeMonstrousBeast.resourceScaleInverse;
-        _textureHeight = _element.atlas.TextureSize.y * FearsomeMonstrousBeast.resourceScaleInverse;
+        _textureWidth = _element.Atlas.TextureSize.x * FearsomeMonstrousBeast.resourceScaleInverse;
+        _textureHeight = _element.Atlas.TextureSize.y * FearsomeMonstrousBeast.resourceScaleInverse;
 
         _areLocalVerticesDirty = true;
         UpdateLocalVertices();

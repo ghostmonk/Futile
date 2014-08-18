@@ -33,7 +33,7 @@ public class FSimpleTileMap : FMeshNode
             throw new FutileException( "FSimpleTileMap - the number of elements does not match the number of rows and columns. It should be cols*rows = elements.Length" );
         }
         
-        Init( new FMeshData( FacetType.Quad ), _elements[ 0 ].atlas.FullElement );
+        Init( new FMeshData( FacetType.Quad ), _elements[ 0 ].Atlas.FullElement );
 
         UpdateMesh();
     }

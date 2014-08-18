@@ -1,3 +1,4 @@
+using Futile;
 using UnityEngine;
 using System.Collections;
 using System;
@@ -44,7 +45,7 @@ public class FButton : FContainer, FSingleTouchableInterface
             _supportsOver = true;
         }
         
-        _sprite = new FSprite( _upElement.name );
+        _sprite = new FSprite( _upElement.Name );
         _sprite.anchorX = _anchorX;
         _sprite.anchorY = _anchorY;
         AddChild( _sprite );

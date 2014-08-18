@@ -1,56 +1,49 @@
-// //Written by ghostmonk
-using System;
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace Futile.Core.AtlasCore
 {
     public class AtlasElement
     {
-        public string name;
-        public int indexInAtlas;
-        public Atlas atlas;
-        public int atlasIndex;
-        public Rect uvRect;
-        public Vector2 uvTopLeft;
-        public Vector2 uvTopRight;
-        public Vector2 uvBottomRight;
-        public Vector2 uvBottomLeft;
-        public Rect sourceRect;
-        public Vector2 sourceSize;
-        public Vector2 sourcePixelSize;
-        public bool isTrimmed;
-        //public bool isRotated;
-        
+        public Atlas Atlas;
+        public int AtlasIndex;
+        public int IndexInAtlas;
+        public bool IsTrimmed;
+        public string Name;
+        public Vector2 SourcePixelSize;
+        public Rect SourceRect;
+        public Vector2 SourceSize;
+        public Vector2 UvBottomLeft;
+        public Vector2 UvBottomRight;
+        public Rect UvRect;
+        public Vector2 UvTopLeft;
+        public Vector2 UvTopRight;
+
         public AtlasElement Clone()
         {
-            AtlasElement element = new AtlasElement();
-            
-            element.name = name;
-            
-            element.indexInAtlas = indexInAtlas;
-            
-            element.atlas = atlas;
-            element.atlasIndex = atlasIndex;
-            
-            element.uvRect = uvRect;
-            element.uvTopLeft = uvTopLeft;
-            element.uvTopRight = uvTopRight;
-            element.uvBottomRight = uvBottomRight;
-            element.uvBottomLeft = uvBottomLeft;
-            
-            element.sourceRect = sourceRect;
-            element.sourceSize = sourceSize;
-            element.isTrimmed = isTrimmed;
-            
-            return element;
+            return new AtlasElement
+            {
+                Name = Name,
+                IndexInAtlas = IndexInAtlas,
+                Atlas = Atlas,
+                AtlasIndex = AtlasIndex,
+                UvRect = UvRect,
+                UvTopLeft = UvTopLeft,
+                UvTopRight = UvTopRight,
+                UvBottomRight = UvBottomRight,
+                UvBottomLeft = UvBottomLeft,
+                SourceRect = SourceRect,
+                SourceSize = SourceSize,
+                IsTrimmed = IsTrimmed
+            };
         }
 
-        public void UseTrimmedSizeAsBounds()//this will alter the element so that it uses the trimmed area as its bounds
+        /// <summary>
+        /// This will alter the element so that it uses the trimmed area as its bounds
+        /// </summary>
+        public void UseTrimmedSizeAsBounds()
         {
-            sourceSize.x = sourceRect.width; 
-            sourceSize.y = sourceRect.height;
+            SourceSize.x = SourceRect.width;
+            SourceSize.y = SourceRect.height;
         }
     }
 }

@@ -1,3 +1,4 @@
+using Futile;
 using UnityEngine;
 using System;
 using System.Collections.Generic;
@@ -83,10 +84,10 @@ public class FMeshNode : FFacetElementNode
     {
         _isMeshDirty = true;
 
-        _uvScaleX = _element.uvRect.width;
-        _uvScaleY = _element.uvRect.height;
-        _uvOffsetX = _element.uvRect.xMin;
-        _uvOffsetY = _element.uvRect.yMin;
+        _uvScaleX = _element.UvRect.width;
+        _uvScaleY = _element.UvRect.height;
+        _uvOffsetX = _element.UvRect.xMin;
+        _uvOffsetY = _element.UvRect.yMin;
     }
     
     override public void Redraw( bool shouldForceDirty, bool shouldUpdateDepth )

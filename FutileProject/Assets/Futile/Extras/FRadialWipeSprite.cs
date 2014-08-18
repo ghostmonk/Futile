@@ -1,3 +1,4 @@
+using Futile;
 using UnityEngine;
 using System;
 
@@ -200,7 +201,7 @@ public class FRadialWipeSprite : FSprite
         
         //create uv vertices
         
-        Rect uvRect = _element.uvRect;
+        Rect uvRect = _element.UvRect;
         Vector2 uvCenter = uvRect.center;
         
         for( int v = 0; v<7; v++ )

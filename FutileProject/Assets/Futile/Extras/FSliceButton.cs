@@ -1,3 +1,4 @@
+using Futile;
 using UnityEngine;
 using System.Collections;
 using System;
@@ -36,7 +37,7 @@ public class FSliceButton : FContainer, FSingleTouchableInterface
         
         _soundName = soundName;
                     
-        _bg = new FSliceSprite( _upElement.name, width, height, 12, 12, 12, 12 );
+        _bg = new FSliceSprite( _upElement.Name, width, height, 12, 12, 12, 12 );
         _bg.anchorX = _anchorX;
         _bg.anchorY = _anchorY;
         _bg.color = _upColor;

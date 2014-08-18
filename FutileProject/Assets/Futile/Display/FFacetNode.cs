@@ -1,3 +1,4 @@
+using Futile;
 using UnityEngine;
 using System;
 using Futile.Core.AtlasCore;
@@ -100,7 +101,7 @@ public class FFacetElementNode : FFacetNode
     {
         _element = element;
         
-        base.Init( facetType, _element.atlas, numberOfFacetsNeeded );
+        base.Init( facetType, _element.Atlas, numberOfFacetsNeeded );
         
         HandleElementChanged();
     }
@@ -117,13 +118,13 @@ public class FFacetElementNode : FFacetNode
         {
             if( _element != value )
             {
-                bool isAtlasDifferent = ( _element.atlas != value.atlas );
+                bool isAtlasDifferent = ( _element.Atlas != value.Atlas );
     
                 _element = value;   
                 
                 if( isAtlasDifferent )
                 {
-                    _atlas = _element.atlas;
+                    _atlas = _element.Atlas;
                     if( _isOnStage )
                     {
                         _stage.HandleFacetsChanged();

@@ -1,4 +1,5 @@
 using System;
+using Futile;
 using UnityEngine;
 
 public class FDebugFrameRateGraph : FContainer

@@ -56,7 +56,7 @@ public class RXWatcher
                     FSprite targetAsSprite = target as FSprite;
                     if (targetAsSprite != null)
                     {
-                        targetName += " - '" + targetAsSprite.element.name + "'";
+                        targetName += " - '" + targetAsSprite.element.Name + "'";
                     }
                 }
             }

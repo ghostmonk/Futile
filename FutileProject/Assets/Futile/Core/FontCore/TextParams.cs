@@ -1,34 +1,29 @@
-using System;
-using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-
-namespace Futile.Core.FontCore 
+namespace Futile.Core.FontCore
 {
     public class TextParams
     {
-        public float scaledLineHeightOffset = 0;
-        public float scaledKerningOffset = 0;
-        private float _lineHeightOffset = 0;
-        private float _kerningOffset = 0;
-        
-        public float kerningOffset
+        public float ScaledKerningOffset = 0;
+        public float ScaledLineHeightOffset = 0;
+        private float kerningOffset = 0;
+        private float lineHeightOffset = 0;
+
+        public float KerningOffset
         {
-            get { return _kerningOffset;}
+            get { return kerningOffset; }
             set
             {
-                _kerningOffset = value; 
-                scaledKerningOffset = value;
+                kerningOffset = value;
+                ScaledKerningOffset = value;
             }
         }
-        
-        public float lineHeightOffset
+
+        public float LineHeightOffset
         {
-            get { return _lineHeightOffset;}
+            get { return lineHeightOffset; }
             set
             {
-                _lineHeightOffset = value; 
-                scaledLineHeightOffset = value;
+                lineHeightOffset = value;
+                ScaledLineHeightOffset = value;
             }
         }
     }

@@ -1,3 +1,4 @@
+using Futile;
 using UnityEngine;
 using System;
 using Futile.Core.AtlasCore;
@@ -81,15 +82,15 @@ public class FSprite : FFacetElementNode
     {
         _areLocalVerticesDirty = false;
         
-        _textureRect.width = _element.sourceSize.x;
-        _textureRect.height = _element.sourceSize.y;
+        _textureRect.width = _element.SourceSize.x;
+        _textureRect.height = _element.SourceSize.y;
         _textureRect.x = -_anchorX * _textureRect.width;
         _textureRect.y = -_anchorY * _textureRect.height;
         
-        float sourceWidth = _element.sourceRect.width;
-        float sourceHeight = _element.sourceRect.height;
-        float left = _textureRect.x + _element.sourceRect.x;
-        float bottom = _textureRect.y + ( _textureRect.height - _element.sourceRect.y - _element.sourceRect.height );
+        float sourceWidth = _element.SourceRect.width;
+        float sourceHeight = _element.SourceRect.height;
+        float left = _textureRect.x + _element.SourceRect.x;
+        float bottom = _textureRect.y + ( _textureRect.height - _element.SourceRect.y - _element.SourceRect.height );
         
         _localRect.x = left;
         _localRect.y = bottom;
@@ -124,10 +125,10 @@ public class FSprite : FFacetElementNode
             _concatenatedMatrix.ApplyVector3FromLocalVector2( ref vertices[ vertexIndex2 ], _localVertices[ 2 ], _meshZ );
             _concatenatedMatrix.ApplyVector3FromLocalVector2( ref vertices[ vertexIndex3 ], _localVertices[ 3 ], _meshZ );
             
-            uvs[ vertexIndex0 ] = _element.uvTopLeft;
-            uvs[ vertexIndex1 ] = _element.uvTopRight;
-            uvs[ vertexIndex2 ] = _element.uvBottomRight;
-            uvs[ vertexIndex3 ] = _element.uvBottomLeft;
+            uvs[ vertexIndex0 ] = _element.UvTopLeft;
+            uvs[ vertexIndex1 ] = _element.UvTopRight;
+            uvs[ vertexIndex2 ] = _element.UvBottomRight;
+            uvs[ vertexIndex3 ] = _element.UvBottomLeft;
             
             colors[ vertexIndex0 ] = _alphaColor;
             colors[ vertexIndex1 ] = _alphaColor;

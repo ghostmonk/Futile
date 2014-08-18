@@ -1,3 +1,4 @@
+using Futile;
 using UnityEngine;
 using System;
 using System.Collections.Generic;
@@ -38,8 +39,8 @@ public class FRepeatMeshSprite : FMeshNode
         float offsetX = -_anchorX * width;
         float offsetY = -_anchorY * height;
         
-        float ewidth = _element.sourceSize.x;
-        float eheight = _element.sourceSize.y;
+        float ewidth = _element.SourceSize.x;
+        float eheight = _element.SourceSize.y;
         
         float leftRemaining = RXMath.Mod( _scrollX, ewidth );
         float bottomRemaining = RXMath.Mod( _scrollY, eheight );

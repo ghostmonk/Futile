@@ -1,4 +1,5 @@
 using System;
+using Futile;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -39,7 +40,7 @@ public class FLabel : FFacetElementNode
         _font = FearsomeMonstrousBeast.atlasManager.GetFontWithName( _fontName );
         _textParams = textParams;
 
-        Init( FacetType.Quad, _font.element, 0 );
+        Init( FacetType.Quad, _font.Element, 0 );
 
         CreateTextQuads();
     }
@@ -57,7 +58,7 @@ public class FLabel : FFacetElementNode
         int lineCount = _letterQuadLines.Length;
         for( int i = 0; i< lineCount; i++ )
         {
-            _numberOfFacetsNeeded += _letterQuadLines[ i ].quads.Length;
+            _numberOfFacetsNeeded += _letterQuadLines[ i ].Quads.Length;
         }
         
         if( _isOnStage )
@@ -87,8 +88,8 @@ public class FLabel : FFacetElementNode
         for( int i = 0; i<lineCount; i++ )
         {
             LetterQuadLine line = _letterQuadLines[ i ];
-            minY = Math.Min( line.bounds.yMin, minY );
-            maxY = Math.Max( line.bounds.yMax, maxY );
+            minY = Math.Min( line.Bounds.yMin, minY );
+            maxY = Math.Max( line.Bounds.yMax, maxY );
         }
         
         float offsetY = -( minY + ( ( maxY - minY ) * _anchorY ) );
@@ -96,15 +97,15 @@ public class FLabel : FFacetElementNode
         for( int i = 0; i<lineCount; i++ )
         {
             LetterQuadLine line = _letterQuadLines[ i ];
-            float offsetX = -line.bounds.width * _anchorX;
+            float offsetX = -line.Bounds.width * _anchorX;
             
             minX = Math.Min( offsetX, minX );
-            maxX = Math.Max( offsetX + line.bounds.width, maxX );
+            maxX = Math.Max( offsetX + line.Bounds.width, maxX );
 
-            int quadCount = line.quads.Length;
+            int quadCount = line.Quads.Length;
             for( int q = 0; q< quadCount; q++ )
             {
-                line.quads[ q ].CalculateVectors( offsetX + _font.offsetX, offsetY + _font.offsetY );
+                line.Quads[ q ].CalculateVectors( offsetX + _font.OffsetX, offsetY + _font.OffsetY );
             }
 
         }
@@ -158,7 +159,7 @@ public class FLabel : FFacetElementNode
             _isMeshDirty = false;
 
             //check if the label is empty so we don't have to bother trying to draw anything
-            if( _letterQuadLines.Length == 0 || _letterQuadLines[ 0 ].quads.Length == 0 )
+            if( _letterQuadLines.Length == 0 || _letterQuadLines[ 0 ].Quads.Length == 0 )
             {
                 _renderLayer.HandleVertsChange();
                 return; 
@@ -173,7 +174,7 @@ public class FLabel : FFacetElementNode
             int vertexIndex2 = vertexIndex0 + 2;
             int vertexIndex3 = vertexIndex0 + 3;
 
-            Vector2 topLeft = _letterQuadLines[ 0 ].quads[ 0 ].topLeft;
+            Vector2 topLeft = _letterQuadLines[ 0 ].Quads[ 0 ].TopLeft;
 
             Matrix matrixToUse = _concatenatedMatrix;
 
@@ -188,7 +189,7 @@ public class FLabel : FFacetElementNode
             int lineCount = _letterQuadLines.Length;
             for( int i = 0; i<lineCount; i++ )
             {
-                LetterQuad[] quads = _letterQuadLines[ i ].quads;
+                LetterQuad[] quads = _letterQuadLines[ i ].Quads;
                 
                 
                 int quadCount = quads.Length;
@@ -196,17 +197,17 @@ public class FLabel : FFacetElementNode
                 for( int q = 0; q<quadCount; q++ )
                 {
                     LetterQuad quad = quads[ q ];
-                    CharInfo charInfo = quad.charInfo;
+                    CharInfo charInfo = quad.CharInfo;
                     
-                    matrixToUse.ApplyVector3FromLocalVector2( ref vertices[ vertexIndex0 ], quad.topLeft, 0 );
-                    matrixToUse.ApplyVector3FromLocalVector2( ref vertices[ vertexIndex1 ], quad.topRight, 0 );
-                    matrixToUse.ApplyVector3FromLocalVector2( ref vertices[ vertexIndex2 ], quad.bottomRight, 0 );
-                    matrixToUse.ApplyVector3FromLocalVector2( ref vertices[ vertexIndex3 ], quad.bottomLeft, 0 );
+                    matrixToUse.ApplyVector3FromLocalVector2( ref vertices[ vertexIndex0 ], quad.TopLeft, 0 );
+                    matrixToUse.ApplyVector3FromLocalVector2( ref vertices[ vertexIndex1 ], quad.TopRight, 0 );
+                    matrixToUse.ApplyVector3FromLocalVector2( ref vertices[ vertexIndex2 ], quad.BottomRight, 0 );
+                    matrixToUse.ApplyVector3FromLocalVector2( ref vertices[ vertexIndex3 ], quad.BottomLeft, 0 );
                     
-                    uvs[ vertexIndex0 ] = charInfo.uvTopLeft;
-                    uvs[ vertexIndex1 ] = charInfo.uvTopRight;
-                    uvs[ vertexIndex2 ] = charInfo.uvBottomRight;
-                    uvs[ vertexIndex3 ] = charInfo.uvBottomLeft;
+                    uvs[ vertexIndex0 ] = charInfo.UvTopLeft;
+                    uvs[ vertexIndex1 ] = charInfo.UvTopRight;
+                    uvs[ vertexIndex2 ] = charInfo.UvBottomRight;
+                    uvs[ vertexIndex3 ] = charInfo.UvBottomLeft;
                     
                     colors[ vertexIndex0 ] = _alphaColor;
                     colors[ vertexIndex1 ] = _alphaColor;

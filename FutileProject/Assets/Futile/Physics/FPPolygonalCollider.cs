@@ -1,3 +1,4 @@
+using Futile;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -150,9 +151,9 @@ public class FPDebugPolygonColliderView : FFacetElementNode
     {
         _areLocalVerticesDirty = false;
         
-        _uvTopLeft = _element.uvTopLeft;
-        _uvBottomLeft = _element.uvBottomLeft;
-        _uvBottomRight = _element.uvBottomRight;
+        _uvTopLeft = _element.UvTopLeft;
+        _uvBottomLeft = _element.UvBottomLeft;
+        _uvBottomRight = _element.UvBottomRight;
         
         List<int[]> trianglePolygons = _mesh2D.polygonalData.trianglePolygons;
         

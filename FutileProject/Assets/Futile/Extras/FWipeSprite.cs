@@ -1,3 +1,4 @@
+using Futile;
 using UnityEngine;
 using System;
 
@@ -73,31 +74,31 @@ public class FWipeSprite : FSprite
             _concatenatedMatrix.ApplyVector3FromLocalVector2( ref vertices[ vertexIndex2 ], localVector2, 0 );
             _concatenatedMatrix.ApplyVector3FromLocalVector2( ref vertices[ vertexIndex3 ], localVector3, 0 );
             
-            float uvWidth = ( _element.uvTopRight.x - _element.uvTopLeft.x );
-            float uvHeight = ( _element.uvTopRight.y - _element.uvBottomRight.y );
+            float uvWidth = ( _element.UvTopRight.x - _element.UvTopLeft.x );
+            float uvHeight = ( _element.UvTopRight.y - _element.UvBottomRight.y );
             
             uvs[ vertexIndex0 ] = new Vector2
             (
-                _element.uvTopLeft.x + uvWidth * useLeft,
-                _element.uvBottomLeft.y + uvHeight * useTop 
+                _element.UvTopLeft.x + uvWidth * useLeft,
+                _element.UvBottomLeft.y + uvHeight * useTop 
             );
             
             uvs[ vertexIndex1 ] = new Vector2
             (
-                _element.uvTopLeft.x + uvWidth * useRight,
-                _element.uvBottomLeft.y + uvHeight * useTop 
+                _element.UvTopLeft.x + uvWidth * useRight,
+                _element.UvBottomLeft.y + uvHeight * useTop 
             );
             
             uvs[ vertexIndex2 ] = new Vector2
             (
-                _element.uvTopLeft.x + uvWidth * useRight,
-                _element.uvBottomLeft.y + uvHeight * useBottom 
+                _element.UvTopLeft.x + uvWidth * useRight,
+                _element.UvBottomLeft.y + uvHeight * useBottom 
             );
             
             uvs[ vertexIndex3 ] = new Vector2
             (
-                _element.uvTopLeft.x + uvWidth * useLeft,
-                _element.uvBottomLeft.y + uvHeight * useBottom 
+                _element.UvTopLeft.x + uvWidth * useLeft,
+                _element.UvBottomLeft.y + uvHeight * useBottom 
             );
             
             colors[ vertexIndex0 ] = _alphaColor;
